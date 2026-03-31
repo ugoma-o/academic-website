@@ -99,6 +99,47 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Image carousel styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .carousel {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .carousel-item {
+            min-width: 400px;
+            height: 300px;
+            margin-right: 1rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
+        /* Duplicate carousel for seamless loop */
+        .carousel-item:nth-child(n+7) {
+            animation-delay: -15s;
+        }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-white">
@@ -115,16 +156,16 @@
     <!-- NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase" onclick="navigate('home')">
+            <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase" onclick="navigate('about')">
                 Ugoma Onubogu
             </div>
             <nav class="hidden md:flex space-x-8 text-sm text-brand-800 tracking-wide">
-                <button onclick="navigate('home')" class="nav-link active-nav pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="home">Home</button>
                 <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="about">About</button>
                 <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="research">Research</button>
                 <button onclick="navigate('publications')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="publications">Publications</button>
                 <button onclick="navigate('projects')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="projects">Projects</button>
-                <button onclick="navigate('service')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="service">Community and Impact</button>
+                <button onclick="navigate('recognition')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="recognition">Recognition</button>
+                <button onclick="navigate('impact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="impact">Impact</button>
                 <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="contact">Contact</button>
             </nav>
             <button class="md:hidden text-brand-900">
@@ -136,70 +177,87 @@
     <!-- MAIN CONTENT AREA -->
     <main class="flex-grow w-full bg-gradient-to-br from-brand-cream via-brand-50 to-brand-cream">
 
-        <!-- 1. HOMEPAGE -->
-        <section id="home" class="page-section active">
-            <div class="max-w-6xl mx-auto px-6 py-24 md:py-40 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <h2 class="text-brand-teal font-semibold tracking-caps uppercase text-sm mb-4">Physician-Scientist</h2>
-                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-navy font-bold leading-tight mb-6">
-                        Bridging clinical oncology and translational science.
-                    </h1>
-                    <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
-                    <p class="text-lg text-brand-800 leading-relaxed mb-10 max-w-lg font-light">
-                        I am a resident physician and researcher focused on the intersection of neuro-oncology, spatial omics, and image-guided therapeutics to improve patient outcomes.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md">
-                            View Publications
-                        </button>
-                        <a href="#" class="bg-white border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-3 rounded-full text-sm font-medium transition-all shadow-sm">
-                            Download CV
-                        </a>
+        <!-- 1. ABOUT -->
+        <section id="about" class="page-section active">
+            <div class="max-w-6xl mx-auto px-6 py-24 md:py-40">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
+                    <div class="scroll-reveal">
+                        <h2 class="text-brand-teal font-semibold tracking-caps uppercase text-sm mb-4">Physician-Scientist</h2>
+                        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-navy font-bold leading-tight mb-6">
+                            Bridging clinical oncology and translational science.
+                        </h1>
+                        <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                        <p class="text-lg text-brand-800 leading-relaxed mb-10 max-w-lg font-light">
+                            I am a resident physician and researcher focused on the intersection of neuro-oncology, spatial omics, and image-guided therapeutics to improve patient outcomes.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md">
+                                View Publications
+                            </button>
+                            <a href="#" class="bg-white border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-3 rounded-full text-sm font-medium transition-all shadow-sm">
+                                Download CV
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block scroll-reveal" style="animation-delay: 0.1s;">
+                        <div class="aspect-[4/5] bg-gradient-to-br from-brand-100 to-brand-200 rounded-3xl shadow-lg flex items-center justify-center border border-brand-300 relative overflow-hidden">
+                            <span class="text-brand-800/30 font-serif italic">[ Professional Portrait ]</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hidden md:block scroll-reveal" style="animation-delay: 0.1s;">
-                    <div class="aspect-[4/5] bg-gradient-to-br from-brand-100 to-brand-200 rounded-3xl shadow-lg flex items-center justify-center border border-brand-300 relative overflow-hidden">
-                        <span class="text-brand-800/30 font-serif italic">[ Professional Portrait ]</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Featured Highlights -->
-            <div class="bg-white/40 border-y border-brand-200/50 backdrop-blur-sm">
-                <div class="max-w-6xl mx-auto px-6 py-20">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-8 border border-brand-200 rounded-2xl hover:shadow-lg transition-shadow bg-white/50 backdrop-blur-xs scroll-reveal">
-                            <h3 class="font-serif text-xl text-brand-navy font-bold mb-3">Translational Research</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed font-light">Investigating spatial tumor microenvironments in glioblastoma to identify novel radio-sensitizing targets.</p>
-                            <button onclick="navigate('research')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">Explore Research &rarr;</button>
-                        </div>
-                        <div class="p-8 border border-brand-200 rounded-2xl hover:shadow-lg transition-shadow bg-white/50 backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
-                            <h3 class="font-serif text-xl text-brand-navy font-bold mb-3">Computational Projects</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed font-light">Developing open-source bioinformatics pipelines for integrated radio-genomic data analysis.</p>
-                            <button onclick="navigate('projects')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">View Projects &rarr;</button>
-                        </div>
-                        <div class="p-8 border border-brand-200 rounded-2xl hover:shadow-lg transition-shadow bg-white/50 backdrop-blur-xs scroll-reveal" style="animation-delay: 0.2s;">
-                            <h3 class="font-serif text-xl text-brand-navy font-bold mb-3">Selected Publications</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed font-light">Recent first-author contributions in <em>Nature Medicine</em> and the <em>International Journal of Radiation Oncology</em>.</p>
-                            <button onclick="navigate('publications')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">Read Papers &rarr;</button>
+                <!-- Image Carousel Section -->
+                <div class="scroll-reveal mb-24">
+                    <h2 class="font-serif text-3xl text-brand-navy font-bold mb-8 text-center">Research & Clinical Work</h2>
+                    <div class="carousel-container shadow-lg">
+                        <div class="carousel">
+                            <!-- Add your images here - duplicate them at the end for seamless loop -->
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Lab+Work+1" alt="Lab Work">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Clinical+Setting" alt="Clinical">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Research+Team" alt="Team">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Lab+Work+2" alt="Lab Work">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Conference" alt="Conference">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Microscopy" alt="Microscopy">
+                            </div>
+                            <!-- Duplicates for seamless loop -->
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Lab+Work+1" alt="Lab Work">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Clinical+Setting" alt="Clinical">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Research+Team" alt="Team">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Lab+Work+2" alt="Lab Work">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Conference" alt="Conference">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://via.placeholder.com/400x300?text=Microscopy" alt="Microscopy">
+                            </div>
                         </div>
                     </div>
+                    <p class="text-center text-sm text-brand-800/60 mt-4 font-light">Hover to pause • Scroll through research and clinical highlights</p>
                 </div>
-            </div>
-
-            <!-- Conversion CTA -->
-            <div class="max-w-4xl mx-auto px-6 py-24 text-center scroll-reveal" style="animation-delay: 0.3s;">
-                <h2 class="font-serif text-3xl text-brand-navy font-bold mb-6">Interested in collaboration?</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-8 rounded-full"></div>
-                <p class="text-brand-800 mb-8 max-w-2xl mx-auto font-light">I am actively seeking collaborative opportunities in translational neuro-oncology and welcome inquiries regarding research, mentorship, or clinical discussion.</p>
-                <button onclick="navigate('contact')" class="bg-brand-teal hover:bg-brand-accent text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md">
-                    Contact Me
-                </button>
             </div>
         </section>
 
-        <!-- 2. ABOUT -->
-        <section id="about" class="page-section">
+        <!-- 2. ABOUT DETAILED -->
+        <section id="research" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
                 <div class="flex flex-col md:flex-row gap-16">
                     <div class="md:w-1/3">
@@ -258,8 +316,8 @@
             </div>
         </section>
 
-        <!-- 3. RESEARCH -->
-        <section id="research" class="page-section">
+        <!-- 3. RESEARCH PROGRAM -->
+        <section id="publications" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
                 <h1 class="font-serif text-4xl text-brand-navy font-bold mb-6 scroll-reveal">Research Program</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
@@ -280,7 +338,7 @@
         </section>
 
         <!-- 4. PUBLICATIONS -->
-        <section id="publications" class="page-section">
+        <section id="projects" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
                 <div class="flex justify-between items-end mb-10 border-b-2 border-brand-teal/20 pb-4 scroll-reveal">
                     <h1 class="font-serif text-4xl text-brand-navy font-bold">Selected Publications</h1>
@@ -300,49 +358,79 @@
         </section>
 
         <!-- 5. PROJECTS -->
-        <section id="projects" class="page-section">
+        <section id="recognition" class="page-section">
             <div class="max-w-6xl mx-auto px-6 py-20">
-                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Technical & Translational Projects</h1>
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Recognition & Awards</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
-                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Beyond academic publications, I build computational tools, analysis pipelines, and technical resources to advance clinical research infrastructure.</p>
+                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Press features, awards, and public recognition for research and service contributions.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Award/Recognition Item Template -->
                     <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal">
                         <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
-                            <span class="text-brand-800/30 font-mono text-sm">[ Project Interface Snapshot ]</span>
+                            <span class="text-brand-800/30 font-mono text-sm">[ Award Image ]</span>
                         </div>
                         <div class="p-8 flex-grow">
-                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold">Python • R • Nextflow</div>
-                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">GlioPipe: Spatial Data Workflow</h3>
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2024</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Award Title</h3>
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
-                                An open-source, reproducible Nextflow pipeline designed to process and normalize complex spatial transcriptomics data specifically optimized for irradiated brain tissue architectures.
+                                Description of the award or recognition received.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Repository &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">Read More &rarr;</a>
                         </div>
                     </div>
+
                     <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
                         <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
-                            <span class="text-brand-800/30 font-mono text-sm">[ Clinical Dashboard ]</span>
+                            <span class="text-brand-800/30 font-mono text-sm">[ Press Feature ]</span>
                         </div>
                         <div class="p-8 flex-grow">
-                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold">React • Flask • DICOM Integration</div>
-                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">OncoViz Dose Viewer</h3>
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2023</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Press Feature Title</h3>
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
-                                A lightweight, browser-based clinical tool built to overlay experimental dose distributions onto standard diagnostic MRIs for multi-disciplinary tumor board presentations.
+                                Description of the media coverage or press feature.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">Read Case Study &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Article &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.2s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Award Image ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2023</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Research Award</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
+                                Description of recognition received for research contributions.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Award &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.3s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Press Image ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2022</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Media Coverage</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
+                                Description of media coverage or public recognition.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Coverage &rarr;</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. COMMUNITY AND IMPACT -->
-        <section id="service" class="page-section">
+        <!-- 6. IMPACT -->
+        <section id="impact" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
-                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Community and Impact</h1>
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Impact</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
-                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Academic citizenship, teaching, and supporting the next generation of underrepresented scientists in medicine are core tenets of my career.</p>
+                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Academic citizenship, teaching, and supporting the next generation of underrepresented scientists in medicine.</p>
                 
                 <div class="space-y-12">
                     <div class="scroll-reveal">
@@ -355,7 +443,7 @@
                         </ul>
                     </div>
                     <div class="scroll-reveal" style="animation-delay: 0.1s;">
-                        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 border-b-2 border-brand-teal/20 pb-2">Academic Committees</h2>
+                        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 border-b-2 border-brand-teal/20 pb-2">Academic Service</h2>
                         <ul class="space-y-6">
                             <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
                                 <h3 class="font-semibold text-brand-navy">Resident Curriculum Review Board</h3>
@@ -405,7 +493,7 @@
                 &copy; <script>document.write(new Date().getFullYear())</script> Dr. Ugoma Onubogu. All rights reserved.
             </div>
             <div class="flex space-x-6">
-                <a href="#" onclick="navigate('home')" class="hover:text-brand-teal transition-colors font-medium">Home</a>
+                <a href="#" onclick="navigate('about')" class="hover:text-brand-teal transition-colors font-medium">About</a>
                 <a href="#" onclick="navigate('publications')" class="hover:text-brand-teal transition-colors font-medium">Publications</a>
                 <a href="#" onclick="navigate('contact')" class="hover:text-brand-teal transition-colors font-medium">Contact</a>
             </div>
