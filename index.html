@@ -34,21 +34,6 @@
                         tighter: '-0.05em',
                         tight: '-0.025em',
                         caps: '0.15em',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'drift': 'drift 15s linear infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        drift: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(100px)' },
-                        }
                     }
                 }
             }
@@ -67,7 +52,7 @@
             font-weight: 800;
         }
         
-        /* Microscopy Background */
+        /* Subtle microscopy background */
         .microscopy-bg {
             position: fixed;
             top: 0;
@@ -82,85 +67,30 @@
         .cell-particle {
             position: absolute;
             border-radius: 50%;
-            opacity: 0.15;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .cell-particle.large {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #16b0a0;
-        }
-        
-        .cell-particle.medium {
-            width: 80px;
-            height: 80px;
-            border: 1.5px solid #00d9d9;
-        }
-        
-        .cell-particle.small {
-            width: 40px;
-            height: 40px;
+            opacity: 0.08;
             border: 1px solid #16b0a0;
         }
         
-        .dna-strand {
-            position: absolute;
-            width: 300px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #16b0a0, transparent);
-            opacity: 0.1;
-            transform: rotate(-45deg);
+        .cell-particle.large {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .cell-particle.medium {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .cell-particle.small {
+            width: 50px;
+            height: 50px;
         }
         
         main { position: relative; z-index: 1; }
         
-        .accent-line {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 8px;
-        }
-        .accent-line::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #16b0a0, #00d9d9, #16b0a0);
-            opacity: 0.7;
-        }
-        
-        .parallax-element {
-            transition: transform 0.2s cubic-bezier(0.1, 0.1, 0.1, 0.1);
-        }
-        
-        /* Glowing effect on hover */
-        .glow-effect {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .glow-effect::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(22, 176, 160, 0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        /* Scroll-based animation */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
@@ -168,27 +98,32 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .subtle-hover {
+            transition: all 0.3s ease;
+        }
+
+        .subtle-hover:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body class="bg-brand-50 text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-brand-50">
 
-    <!-- Animated Microscopy Background -->
+    <!-- Subtle Microscopy Background -->
     <div class="microscopy-bg" id="microscopyBg">
-        <div class="cell-particle large" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="cell-particle medium" style="top: 20%; right: 10%; animation-delay: 1s;"></div>
-        <div class="cell-particle small" style="top: 40%; left: 15%; animation-delay: 2s;"></div>
-        <div class="cell-particle large" style="bottom: 15%; right: 5%; animation-delay: 0.5s;"></div>
-        <div class="cell-particle medium" style="bottom: 30%; left: 20%; animation-delay: 1.5s;"></div>
-        <div class="dna-strand" style="top: 25%; left: 10%;"></div>
-        <div class="dna-strand" style="top: 60%; right: 15%; transform: rotate(45deg);"></div>
-        <div class="dna-strand" style="bottom: 20%; left: 30%; transform: rotate(-25deg);"></div>
+        <div class="cell-particle large" style="top: 5%; left: 10%; opacity: 0.05;"></div>
+        <div class="cell-particle medium" style="top: 25%; right: 8%; opacity: 0.06;"></div>
+        <div class="cell-particle small" style="top: 50%; left: 5%; opacity: 0.04;"></div>
+        <div class="cell-particle large" style="bottom: 10%; right: 12%; opacity: 0.05;"></div>
+        <div class="cell-particle medium" style="bottom: 25%; left: 15%; opacity: 0.06;"></div>
     </div>
 
     <!-- NAVIGATION -->
     <header class="sticky top-0 z-50 bg-brand-100/95 backdrop-blur-lg border-b border-brand-200/30 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase" onclick="navigate('home')">
-                Ugoma Onubogu
+                Ugoma
             </div>
             <nav class="hidden md:flex space-x-8 text-sm text-brand-800 tracking-wide">
                 <button onclick="navigate('home')" class="nav-link active-nav pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="home">Home</button>
@@ -208,79 +143,98 @@
     <!-- MAIN CONTENT AREA -->
     <main class="flex-grow w-full bg-gradient-to-br from-brand-50 via-brand-100 to-brand-50">
 
-        <!-- 1. HOMEPAGE -->
+        <!-- 1. HOMEPAGE (REIMAGINED) -->
         <section id="home" class="page-section active">
-            <div class="max-w-6xl mx-auto px-6 py-24 md:py-40 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <div class="text-brand-teal font-semibold tracking-caps uppercase text-xs mb-6 font-display">Physician-Scientist & Researcher</div>
-                    <h1 class="headline text-5xl md:text-6xl lg:text-7xl text-brand-teal leading-tight mb-8">
-                        Bridging Oncology & Science
-                    </h1>
-                    <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
-                    <p class="text-lg text-brand-800 leading-relaxed mb-12 max-w-lg font-light tracking-tight">
-                        Resident physician and researcher focused on the intersection of neuro-oncology, spatial omics, and image-guided therapeutics to improve patient outcomes.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
-                            View Publications
-                        </button>
-                        <a href="#" class="bg-brand-100 border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-md">
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-                <div class="hidden md:block parallax-element">
-                    <div class="aspect-[4/5] bg-gradient-to-br from-brand-200 via-brand-100 to-brand-200 rounded-2xl shadow-2xl flex items-center justify-center border-2 border-brand-teal/30 relative overflow-hidden glow-effect">
-                        <div class="absolute inset-0 opacity-20">
-                            <svg viewBox="0 0 100 100" class="w-full h-full">
-                                <circle cx="50" cy="50" r="40" fill="none" stroke="#16b0a0" stroke-width="0.5" opacity="0.3"/>
-                                <circle cx="50" cy="50" r="30" fill="none" stroke="#00d9d9" stroke-width="0.5" opacity="0.3"/>
-                                <circle cx="50" cy="50" r="20" fill="none" stroke="#16b0a0" stroke-width="0.5" opacity="0.3"/>
-                                <path d="M 30 50 Q 50 30 70 50 Q 50 70 30 50" fill="none" stroke="#00d9d9" stroke-width="0.5" opacity="0.3"/>
-                            </svg>
+            <!-- Hero Section -->
+            <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center md:items-start">
+                    <!-- Left Content -->
+                    <div class="scroll-reveal md:pt-8">
+                        <div class="inline-block mb-6">
+                            <span class="text-brand-teal font-mono text-xs font-bold uppercase tracking-wider">Resident Physician & Researcher</span>
                         </div>
-                        <span class="text-brand-800/30 font-mono italic text-sm relative z-10">[ Professional Portrait ]</span>
+                        <h1 class="headline text-5xl md:text-6xl lg:text-7xl text-brand-teal leading-tight mb-6">
+                            Translational Neuro-Oncology
+                        </h1>
+                        <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
+                        <p class="text-lg text-brand-800 leading-relaxed mb-10 font-light max-w-lg">
+                            Bridging clinical medicine and computational science to advance cancer treatment through spatial omics and image-guided therapeutics.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="navigate('research')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all subtle-hover">
+                                Explore Research
+                            </button>
+                            <button onclick="navigate('contact')" class="bg-brand-100 border-2 border-brand-teal hover:border-brand-accent text-brand-800 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all subtle-hover">
+                                Get In Touch
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Featured Highlights -->
-            <div class="bg-brand-100/40 border-y border-brand-teal/20 backdrop-blur-lg py-20">
-                <div class="max-w-6xl mx-auto px-6">
-                    <h2 class="headline text-3xl text-brand-teal mb-12 text-center scroll-reveal">Core Focus Areas</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group scroll-reveal glow-effect">
-                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
-                                <span class="text-brand-teal text-lg font-bold">01</span>
-                            </div>
-                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Translational Research</h3>
-                            <p class="text-sm text-brand-800 leading-relaxed font-light">Spatial tumor microenvironments in glioblastoma to identify novel radio-sensitizing targets.</p>
+                    <!-- Right Side - Stats/Info Cards -->
+                    <div class="space-y-6">
+                        <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl p-6 backdrop-blur-sm subtle-hover">
+                            <div class="text-4xl font-bold text-brand-teal mb-2">MD/PhD</div>
+                            <p class="text-sm text-brand-800 font-light">Florida Atlantic University & Scripps Research</p>
+                            <p class="text-xs text-brand-800/60 mt-2 font-light">Cancer Genetics & Molecular Medicine</p>
                         </div>
-                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group scroll-reveal glow-effect" style="animation-delay: 0.1s;">
-                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
-                                <span class="text-brand-teal text-lg font-bold">02</span>
-                            </div>
-                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Computational Projects</h3>
-                            <p class="text-sm text-brand-800 leading-relaxed font-light">Open-source bioinformatics pipelines for integrated radio-genomic data analysis.</p>
+
+                        <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl p-6 backdrop-blur-sm subtle-hover" style="animation-delay: 0.1s;">
+                            <div class="text-4xl font-bold text-brand-teal mb-2">Radiation</div>
+                            <p class="text-sm text-brand-800 font-light">MD Anderson Cancer Center</p>
+                            <p class="text-xs text-brand-800/60 mt-2 font-light">Residency Training 2027-2031</p>
                         </div>
-                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group scroll-reveal glow-effect" style="animation-delay: 0.2s;">
-                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
-                                <span class="text-brand-teal text-lg font-bold">03</span>
-                            </div>
-                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Publications</h3>
-                            <p class="text-sm text-brand-800 leading-relaxed font-light"><em>Nature Medicine</em> and <em>International Journal of Radiation Oncology</em>.</p>
+
+                        <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl p-6 backdrop-blur-sm subtle-hover" style="animation-delay: 0.2s;">
+                            <div class="text-4xl font-bold text-brand-teal mb-2">Focus</div>
+                            <p class="text-sm text-brand-800 font-light">Spatial Omics & Radiogenomics</p>
+                            <p class="text-xs text-brand-800/60 mt-2 font-light">Glioblastoma Research</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Conversion CTA -->
-            <div class="max-w-4xl mx-auto px-6 py-24 text-center scroll-reveal">
-                <h2 class="headline text-4xl text-brand-teal mb-6">Open to Collaboration</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-8"></div>
-                <p class="text-brand-800 mb-10 max-w-2xl mx-auto font-light text-lg">Actively seeking collaborative opportunities in translational neuro-oncology and research partnerships.</p>
-                <button onclick="navigate('contact')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
-                    Get In Touch
+            <!-- Divider -->
+            <div class="border-t border-brand-teal/20 my-16"></div>
+
+            <!-- Key Research Areas -->
+            <div class="max-w-7xl mx-auto px-6 py-16">
+                <h2 class="headline text-3xl text-brand-teal mb-12 scroll-reveal text-center md:text-left">Areas of Expertise</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/20 rounded-xl p-8 subtle-hover hover:border-brand-teal transition-all">
+                        <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-brand-teal font-bold text-xl">01</span>
+                        </div>
+                        <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Spatial Transcriptomics</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Multi-omic analysis of tumor microenvironments to identify therapeutic resistance mechanisms.</p>
+                    </div>
+
+                    <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/20 rounded-xl p-8 subtle-hover hover:border-brand-teal transition-all" style="animation-delay: 0.1s;">
+                        <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-brand-teal font-bold text-xl">02</span>
+                        </div>
+                        <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Computational Imaging</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Correlating radiographic features with genomic alterations for biomarker discovery.</p>
+                    </div>
+
+                    <div class="scroll-reveal bg-brand-100/40 border-2 border-brand-teal/20 rounded-xl p-8 subtle-hover hover:border-brand-teal transition-all" style="animation-delay: 0.2s;">
+                        <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-brand-teal font-bold text-xl">03</span>
+                        </div>
+                        <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Open-Source Tools</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Developing reproducible pipelines for clinical research and translational applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="max-w-5xl mx-auto px-6 py-20 text-center border-t border-brand-teal/20 mt-8">
+                <h2 class="headline text-3xl text-brand-teal mb-4 scroll-reveal">Recent Publications</h2>
+                <p class="text-brand-800 mb-8 max-w-2xl mx-auto font-light scroll-reveal" style="animation-delay: 0.1s;">
+                    First-author publications in <em>Nature Medicine</em> and <em>International Journal of Radiation Oncology</em>. Ongoing research in spatial oncology and radiogenomics.
+                </p>
+                <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all subtle-hover scroll-reveal" style="animation-delay: 0.2s;">
+                    View All Publications
                 </button>
             </div>
         </section>
@@ -291,19 +245,13 @@
                 <div class="flex flex-col md:flex-row gap-20">
                     <div class="md:w-1/3">
                         <div class="sticky top-28 scroll-reveal">
-                            <div class="aspect-square bg-gradient-to-br from-brand-200 via-brand-100 to-brand-200 rounded-2xl mb-8 flex items-center justify-center border-2 border-brand-teal/30 shadow-xl glow-effect relative overflow-hidden">
-                                <div class="absolute inset-0 opacity-10">
-                                    <svg viewBox="0 0 100 100" class="w-full h-full animate-spin" style="animation-duration: 20s;">
-                                        <circle cx="50" cy="50" r="45" fill="none" stroke="#16b0a0" stroke-width="1"/>
-                                        <path d="M 50 5 A 45 45 0 0 1 95 50" fill="none" stroke="#00d9d9" stroke-width="1.5" stroke-dasharray="5,5"/>
-                                    </svg>
-                                </div>
-                                <span class="text-brand-800/30 font-mono text-sm relative z-10">[ Headshot ]</span>
+                            <div class="aspect-square bg-gradient-to-br from-brand-200 via-brand-100 to-brand-200 rounded-2xl mb-8 flex items-center justify-center border-2 border-brand-teal/30 shadow-xl">
+                                <span class="text-brand-800/30 font-mono text-sm">[ Headshot ]</span>
                             </div>
                             <h1 class="font-display text-3xl text-brand-teal font-black uppercase tracking-tight mb-1">Dr. Ugoma</h1>
                             <p class="text-sm text-brand-800 mb-8 font-light">MD, PhD | Radiation Oncology</p>
-                            <a href="#" class="block w-full text-center bg-brand-teal hover:bg-brand-accent text-brand-50 px-4 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-lg transform hover:scale-105">
-                                Download Full CV
+                            <a href="#" class="block w-full text-center bg-brand-teal hover:bg-brand-accent text-brand-50 px-4 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all subtle-hover">
+                                Download CV
                             </a>
                         </div>
                     </div>
@@ -311,10 +259,10 @@
                         <div class="scroll-reveal">
                             <h2 class="headline text-2xl text-brand-teal mb-4 pb-3 border-b-2 border-brand-teal/30">Biography</h2>
                             <p class="text-brand-800 leading-relaxed mb-4 text-sm font-light">
-                                Physician-scientist training in radiation oncology, with a clinical and research focus on primary central nervous system malignancies. Leveraging modern approaches to bridge benchside biological discoveries and bedside clinical care.
+                                Physician-scientist training in radiation oncology with a clinical and research focus on primary central nervous system malignancies. Dedicated to bridging benchside discovery and bedside care through innovative computational and experimental approaches.
                             </p>
                             <p class="text-brand-800 leading-relaxed text-sm font-light">
-                                Currently at MD Anderson Cancer Center, interrogating the tumor microenvironment of glioblastoma using advanced spatial transcriptomics and computational imaging analysis.
+                                Currently completing residency training at MD Anderson Cancer Center. Laboratory work centers on spatial transcriptomics and computational image analysis of glioblastoma to identify therapeutic targets and resistance mechanisms.
                             </p>
                         </div>
                         
@@ -326,17 +274,17 @@
                                     <div class="text-sm text-brand-800 font-light">AdventHealth Tampa, FL</div>
                                 </li>
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">Radiation Oncology | 2027 – 2031</div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">Radiation Oncology Residency | 2027 – 2031</div>
                                     <div class="text-sm text-brand-800 font-light">MD Anderson Cancer Center, TX</div>
                                 </li>
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">MD / PhD Program | 2017 – 2026</div>
-                                    <div class="text-sm text-brand-800 font-light">Florida Atlantic University, FL & Scripps Research, CA</div>
-                                    <div class="text-xs text-brand-800/70 mt-2 font-light">Focus: Cancer genetics & Molecular Medicine</div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">MD / PhD | 2017 – 2026</div>
+                                    <div class="text-sm text-brand-800 font-light">Florida Atlantic University & Scripps Research</div>
+                                    <div class="text-xs text-brand-800/70 mt-2 font-light">Concentration: Cancer genetics & Molecular Medicine</div>
                                 </li>
                                 <li>
                                     <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">B.S. Biological Sciences | 2012 – 2017</div>
-                                    <div class="text-sm text-brand-800 font-light">Florida A&M University, FL • Summa Cum Laude</div>
+                                    <div class="text-sm text-brand-800 font-light">Florida A&M University • Summa Cum Laude</div>
                                 </li>
                             </ul>
                         </div>
@@ -351,16 +299,16 @@
                 <h1 class="headline text-4xl text-brand-teal mb-6 scroll-reveal">Research Program</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
                 <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-base border-l-4 border-brand-teal pl-6 font-light scroll-reveal">
-                    Dedicated to understanding therapeutic resistance in neuro-oncology through a multi-omic lens. Leveraging clinical data, tissue modeling, and computational methods to drive translational breakthroughs.
+                    Understanding therapeutic resistance in neuro-oncology through multi-omic approaches. Integrating clinical data, tissue modeling, and computational methods to drive translational breakthroughs.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl shadow-md hover:shadow-lg transition-all backdrop-blur-sm hover:border-brand-teal scroll-reveal glow-effect">
+                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl subtle-hover hover:border-brand-teal transition-all scroll-reveal">
                         <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Spatial Tumor Microenvironment</h3>
-                        <p class="text-sm text-brand-800 leading-relaxed font-light">Mapping intricate interactions between immune infiltrates and tumor cells following ionizing radiation using spatial transcriptomics.</p>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Mapping immune-tumor interactions following radiation using spatial transcriptomics and advanced computational analysis.</p>
                     </div>
-                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl shadow-md hover:shadow-lg transition-all backdrop-blur-sm hover:border-brand-teal scroll-reveal glow-effect" style="animation-delay: 0.1s;">
+                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl subtle-hover hover:border-brand-teal transition-all scroll-reveal" style="animation-delay: 0.1s;">
                         <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Radiogenomics</h3>
-                        <p class="text-sm text-brand-800 leading-relaxed font-light">Correlating non-invasive MRI features with genomic alterations to create predictive biomarkers for treatment response.</p>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Correlating non-invasive MRI features with genomic alterations to predict treatment response and resistance.</p>
                     </div>
                 </div>
             </div>
@@ -371,9 +319,9 @@
             <div class="max-w-5xl mx-auto px-6 py-20">
                 <div class="flex justify-between items-end mb-10 border-b-2 border-brand-teal pb-6 scroll-reveal">
                     <div>
-                        <h1 class="headline text-4xl text-brand-teal">Selected Publications</h1>
+                        <h1 class="headline text-4xl text-brand-teal">Publications</h1>
                     </div>
-                    <a href="#" class="text-sm text-brand-teal hover:underline flex items-center font-bold uppercase tracking-wider">View Scholar &rarr;</a>
+                    <a href="#" class="text-sm text-brand-teal hover:underline flex items-center font-bold uppercase tracking-wider">Scholar &rarr;</a>
                 </div>
                 
                 <div id="pubmed-results" class="space-y-8">
@@ -383,7 +331,7 @@
                             <div class="h-2 bg-brand-200 rounded w-1/2"></div>
                         </div>
                     </div>
-                    <p class="text-sm text-brand-800/60 italic font-light">Syncing publications...</p>
+                    <p class="text-sm text-brand-800/60 italic font-light">Loading publications...</p>
                 </div>
             </div>
         </section>
@@ -393,18 +341,12 @@
             <div class="max-w-6xl mx-auto px-6 py-20">
                 <h1 class="headline text-4xl text-brand-teal mb-4 scroll-reveal">Technical Projects</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
-                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light scroll-reveal">Computational tools, analysis pipelines, and technical resources advancing clinical research infrastructure.</p>
+                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light scroll-reveal">Building open-source tools and pipelines for computational research and clinical applications.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col hover:shadow-2xl transition-all hover:border-brand-teal scroll-reveal glow-effect">
-                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30 relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-20">
-                                <svg viewBox="0 0 100 100" class="w-full h-full" style="animation: rotation 15s linear infinite;">
-                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#16b0a0" stroke-width="0.8" opacity="0.5"/>
-                                    <circle cx="50" cy="50" r="20" fill="none" stroke="#00d9d9" stroke-width="0.8" opacity="0.5" transform="rotate(-45 50 50)"/>
-                                </svg>
-                            </div>
-                            <span class="text-brand-800/30 font-mono text-sm font-bold relative z-10">[ Interface ]</span>
+                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col subtle-hover hover:border-brand-teal transition-all scroll-reveal">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30">
+                            <span class="text-brand-800/30 font-mono text-sm font-bold">[ GlioPipe ]</span>
                         </div>
                         <div class="p-8 flex-grow">
                             <div class="text-xs font-mono text-brand-teal mb-4 font-bold uppercase tracking-wider">Python • R • Nextflow</div>
@@ -412,26 +354,20 @@
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
                                 Open-source Nextflow pipeline for spatial transcriptomics data processing optimized for irradiated brain tissue.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Repo &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Repository &rarr;</a>
                         </div>
                     </div>
-                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col hover:shadow-2xl transition-all hover:border-brand-teal scroll-reveal glow-effect" style="animation-delay: 0.1s;">
-                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30 relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-20">
-                                <svg viewBox="0 0 100 100" class="w-full h-full" style="animation: rotation 20s linear infinite reverse;">
-                                    <path d="M 50 20 L 80 80 L 20 80 Z" fill="none" stroke="#16b0a0" stroke-width="1" opacity="0.5"/>
-                                    <circle cx="50" cy="50" r="15" fill="none" stroke="#00d9d9" stroke-width="0.8" opacity="0.5"/>
-                                </svg>
-                            </div>
-                            <span class="text-brand-800/30 font-mono text-sm font-bold relative z-10">[ Dashboard ]</span>
+                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col subtle-hover hover:border-brand-teal transition-all scroll-reveal" style="animation-delay: 0.1s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30">
+                            <span class="text-brand-800/30 font-mono text-sm font-bold">[ OncoViz ]</span>
                         </div>
                         <div class="p-8 flex-grow">
                             <div class="text-xs font-mono text-brand-teal mb-4 font-bold uppercase tracking-wider">React • Flask • DICOM</div>
                             <h3 class="font-display text-xl text-brand-teal font-bold uppercase tracking-wider mb-4">OncoViz</h3>
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
-                                Browser-based clinical tool overlaying experimental dose distributions onto diagnostic MRIs.
+                                Browser-based clinical tool for overlaying experimental dose distributions onto diagnostic MRIs.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Case &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Project &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -443,13 +379,13 @@
             <div class="max-w-5xl mx-auto px-6 py-20">
                 <h1 class="headline text-4xl text-brand-teal mb-4 scroll-reveal">Community & Impact</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
-                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light scroll-reveal">Academic citizenship and supporting the next generation of underrepresented scientists in medicine.</p>
+                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light scroll-reveal">Supporting the next generation of underrepresented scientists and advancing academic medicine.</p>
                 
                 <div class="space-y-12">
                     <div class="scroll-reveal">
                         <h2 class="headline text-2xl text-brand-teal mb-6 pb-3 border-b-2 border-brand-teal/30">Mentorship</h2>
                         <ul class="space-y-6">
-                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all glow-effect">
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl subtle-hover hover:border-brand-teal transition-all">
                                 <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Undergraduate Research Mentor Program</h3>
                                 <p class="text-sm text-brand-800 mt-3 font-light">Supervised 4 undergraduate students in computational biology, guiding two to co-authorship and medical school acceptance.</p>
                             </li>
@@ -458,12 +394,12 @@
                     <div class="scroll-reveal" style="animation-delay: 0.1s;">
                         <h2 class="headline text-2xl text-brand-teal mb-6 pb-3 border-b-2 border-brand-teal/30">Academic Service</h2>
                         <ul class="space-y-6">
-                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all glow-effect">
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl subtle-hover hover:border-brand-teal transition-all">
                                 <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Resident Curriculum Review Board</h3>
                                 <div class="text-xs text-brand-teal font-bold uppercase tracking-wider mt-2 mb-2">2023 - Present</div>
                                 <p class="text-sm text-brand-800 font-light">Integrating radiogenomics and AI into radiation oncology clinical curriculum.</p>
                             </li>
-                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all glow-effect">
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl subtle-hover hover:border-brand-teal transition-all">
                                 <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Diversity in Oncology Initiative</h3>
                                 <div class="text-xs text-brand-teal font-bold uppercase tracking-wider mt-2 mb-2">2021 - 2023</div>
                                 <p class="text-sm text-brand-800 font-light">Organized outreach to promote STEM and clinical oncology careers to underrepresented students.</p>
@@ -481,7 +417,7 @@
                 <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-10"></div>
                 <p class="text-brand-800 mb-12 max-w-lg mx-auto font-light text-lg">For academic inquiries, collaboration, or speaking requests.</p>
                 
-                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105 mb-16">
+                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all subtle-hover mb-16">
                     ugomaon@gmail.com
                 </a>
 
@@ -515,31 +451,10 @@
 
     <!-- NAVIGATION LOGIC & SCROLL ANIMATIONS -->
     <script>
-        // Parallax effect on mouse move
-        document.addEventListener('mousemove', function(e) {
-            const parallaxElements = document.querySelectorAll('.parallax-element');
-            const x = (window.innerWidth - e.clientX * 2) / 100;
-            const y = (window.innerHeight - e.clientY * 2) / 100;
-            
-            parallaxElements.forEach(el => {
-                el.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
-            });
-
-            // Move microscopy particles
-            const bg = document.getElementById('microscopyBg');
-            if (bg) {
-                const particles = bg.querySelectorAll('.cell-particle');
-                particles.forEach((particle, index) => {
-                    const factor = (index + 1) * 0.03;
-                    particle.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-                });
-            }
-        });
-
         // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
@@ -550,23 +465,18 @@
             });
         }, observerOptions);
 
-        // Observe all scroll-reveal elements
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
         });
 
-        // Parallax scroll effect
+        // Very subtle scroll effect on background
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const microscopyBg = document.getElementById('microscopyBg');
             
             if (microscopyBg) {
-                microscopyBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-
-            // Fade out microscopy bg when scrolling down
-            const opacity = Math.max(0.03, 1 - scrolled / 2000);
-            if (microscopyBg) {
+                microscopyBg.style.transform = `translateY(${scrolled * 0.15}px)`;
+                const opacity = Math.max(0.03, 1 - scrolled / 3000);
                 microscopyBg.style.opacity = opacity;
             }
         });
@@ -634,11 +544,6 @@
                     
                     html += `</div></div>`;
                     container.insertAdjacentHTML('beforeend', html);
-                    
-                    // Observe new elements
-                    document.querySelectorAll('.scroll-reveal').forEach(el => {
-                        observer.observe(el);
-                    });
                 });
             } catch (error) {
                 console.error('Error fetching PubMed data:', error);
@@ -648,12 +553,5 @@
 
         window.addEventListener('DOMContentLoaded', fetchPubMedPublications);
     </script>
-
-    <style>
-        @keyframes rotation {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
 </body>
 </html>
