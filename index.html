@@ -6,14 +6,15 @@
     <title>Dr. Ugoma Onubogu | Physician-Scientist | Translational Neuro-Oncology</title>
     <meta name="description" content="Academic portfolio of Dr. Ugoma Onubogu, Resident Physician in Radiation Oncology and Translational Neuro-Oncologist.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Lora', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -26,7 +27,13 @@
                             teal: '#16b0a0',
                             slate: '#0a1419',
                             darkbg: '#050a0f',
+                            accent: '#00d9d9',
                         }
+                    },
+                    letterSpacing: {
+                        tighter: '-0.05em',
+                        tight: '-0.025em',
+                        caps: '0.15em',
                     }
                 }
             }
@@ -36,25 +43,46 @@
         .page-section { display: none; animation: fadeIn 0.4s ease-in-out; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .nav-link.active-nav { color: #16b0a0; font-weight: 600; border-bottom: 2px solid #16b0a0; }
+        .nav-link.active-nav { color: #16b0a0; font-weight: 700; border-bottom: 2px solid #16b0a0; }
+        .headline { 
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 800;
+        }
+        .accent-line {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .accent-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #16b0a0, #00d9d9, #16b0a0);
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body class="bg-brand-50 text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-brand-50">
 
     <!-- NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-brand-100/95 backdrop-blur-lg border-b border-brand-200 shadow-lg">
+    <header class="sticky top-0 z-50 bg-brand-100/95 backdrop-blur-lg border-b border-brand-200/30 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="font-serif text-xl font-bold text-brand-teal cursor-pointer" onclick="navigate('home')">
+            <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase" onclick="navigate('home')">
                 Ugoma Onubogu
             </div>
             <nav class="hidden md:flex space-x-8 text-sm text-brand-800 tracking-wide">
-                <button onclick="navigate('home')" class="nav-link active-nav pb-1 transition-colors hover:text-brand-teal font-medium" data-target="home">Home</button>
-                <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="about">About</button>
-                <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="research">Research</button>
-                <button onclick="navigate('publications')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="publications">Publications</button>
-                <button onclick="navigate('projects')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="projects">Projects</button>
-                <button onclick="navigate('service')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="service">Community and Impact</button>
-                <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-medium" data-target="contact">Contact</button>
+                <button onclick="navigate('home')" class="nav-link active-nav pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="home">Home</button>
+                <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="about">About</button>
+                <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="research">Research</button>
+                <button onclick="navigate('publications')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="publications">Publications</button>
+                <button onclick="navigate('projects')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="projects">Projects</button>
+                <button onclick="navigate('service')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="service">Impact</button>
+                <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="contact">Contact</button>
             </nav>
             <button class="md:hidden text-brand-900">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -67,49 +95,57 @@
 
         <!-- 1. HOMEPAGE -->
         <section id="home" class="page-section active">
-            <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="max-w-6xl mx-auto px-6 py-24 md:py-40 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-brand-teal font-bold tracking-widest text-sm uppercase mb-4">Physician-Scientist</h2>
-                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-teal font-bold leading-tight mb-6">
-                        Bridging clinical oncology and translational science.
+                    <div class="text-brand-teal font-semibold tracking-caps uppercase text-xs mb-6 font-display">Physician-Scientist & Researcher</div>
+                    <h1 class="headline text-5xl md:text-6xl lg:text-7xl text-brand-teal leading-tight mb-8">
+                        Bridging Oncology & Science
                     </h1>
-                    <p class="text-lg text-brand-800 leading-relaxed mb-10 max-w-lg font-light">
-                        I am a resident physician and researcher focused on the intersection of neuro-oncology, spatial omics, and image-guided therapeutics to improve patient outcomes.
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
+                    <p class="text-lg text-brand-800 leading-relaxed mb-12 max-w-lg font-light tracking-tight">
+                        Resident physician and researcher focused on the intersection of neuro-oncology, spatial omics, and image-guided therapeutics to improve patient outcomes.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-teal/90 text-brand-50 px-8 py-3 rounded text-sm font-bold transition-all shadow-lg">
+                        <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                             View Publications
                         </button>
-                        <a href="#" class="bg-brand-100 border border-brand-200 hover:border-brand-teal hover:text-brand-teal text-brand-800 px-8 py-3 rounded text-sm font-medium transition-colors shadow-md">
+                        <a href="#" class="bg-brand-100 border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-md">
                             Download CV
                         </a>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <div class="aspect-[4/5] bg-gradient-to-br from-brand-100 to-brand-200 rounded-lg shadow-2xl flex items-center justify-center border border-brand-200 relative overflow-hidden">
-                        <span class="text-brand-800/40 font-serif italic">[ Professional Portrait ]</span>
+                    <div class="aspect-[4/5] bg-gradient-to-br from-brand-200 via-brand-100 to-brand-200 rounded-2xl shadow-2xl flex items-center justify-center border-2 border-brand-teal/30 relative overflow-hidden">
+                        <span class="text-brand-800/30 font-mono italic text-sm">[ Professional Portrait ]</span>
                     </div>
                 </div>
             </div>
 
             <!-- Featured Highlights -->
-            <div class="bg-brand-100/60 border-y border-brand-200/50 backdrop-blur">
-                <div class="max-w-6xl mx-auto px-6 py-20">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-8 border border-brand-200 rounded-lg hover:shadow-xl transition-shadow bg-brand-100/40 backdrop-blur-sm">
-                            <h3 class="font-serif text-xl text-brand-teal font-bold mb-3">Translational Research</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed">Investigating spatial tumor microenvironments in glioblastoma to identify novel radio-sensitizing targets.</p>
-                            <button onclick="navigate('research')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">Explore Research &rarr;</button>
+            <div class="bg-brand-100/40 border-y border-brand-teal/20 backdrop-blur-lg py-20">
+                <div class="max-w-6xl mx-auto px-6">
+                    <h2 class="headline text-3xl text-brand-teal mb-12 text-center">Core Focus Areas</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group">
+                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
+                                <span class="text-brand-teal text-lg font-bold">01</span>
+                            </div>
+                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Translational Research</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed font-light">Spatial tumor microenvironments in glioblastoma to identify novel radio-sensitizing targets.</p>
                         </div>
-                        <div class="p-8 border border-brand-200 rounded-lg hover:shadow-xl transition-shadow bg-brand-100/40 backdrop-blur-sm">
-                            <h3 class="font-serif text-xl text-brand-teal font-bold mb-3">Computational Projects</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed">Developing open-source bioinformatics pipelines for integrated radio-genomic data analysis.</p>
-                            <button onclick="navigate('projects')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">View Projects &rarr;</button>
+                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group">
+                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
+                                <span class="text-brand-teal text-lg font-bold">02</span>
+                            </div>
+                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Computational Projects</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed font-light">Open-source bioinformatics pipelines for integrated radio-genomic data analysis.</p>
                         </div>
-                        <div class="p-8 border border-brand-200 rounded-lg hover:shadow-xl transition-shadow bg-brand-100/40 backdrop-blur-sm">
-                            <h3 class="font-serif text-xl text-brand-teal font-bold mb-3">Selected Publications</h3>
-                            <p class="text-sm text-brand-800 mb-6 leading-relaxed">Recent first-author contributions in <em>Nature Medicine</em> and the <em>International Journal of Radiation Oncology</em>.</p>
-                            <button onclick="navigate('publications')" class="text-brand-teal text-sm font-bold flex items-center hover:underline">Read Papers &rarr;</button>
+                        <div class="p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all bg-brand-100/30 backdrop-blur-sm hover:shadow-2xl group">
+                            <div class="w-12 h-12 bg-brand-teal/20 rounded-lg mb-4 flex items-center justify-center group-hover:bg-brand-teal/40 transition-all">
+                                <span class="text-brand-teal text-lg font-bold">03</span>
+                            </div>
+                            <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Publications</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed font-light"><em>Nature Medicine</em> and <em>International Journal of Radiation Oncology</em>.</p>
                         </div>
                     </div>
                 </div>
@@ -117,10 +153,11 @@
 
             <!-- Conversion CTA -->
             <div class="max-w-4xl mx-auto px-6 py-24 text-center">
-                <h2 class="font-serif text-3xl text-brand-teal font-bold mb-6">Interested in collaboration?</h2>
-                <p class="text-brand-800 mb-8 max-w-2xl mx-auto font-light">I am actively seeking collaborative opportunities in translational neuro-oncology and welcome inquiries regarding research, mentorship, or clinical discussion.</p>
-                <button onclick="navigate('contact')" class="bg-brand-teal hover:bg-brand-teal/90 text-brand-50 px-8 py-3 rounded text-sm font-bold transition-all shadow-lg">
-                    Contact Me
+                <h2 class="headline text-4xl text-brand-teal mb-6">Open to Collaboration</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-8"></div>
+                <p class="text-brand-800 mb-10 max-w-2xl mx-auto font-light text-lg">Actively seeking collaborative opportunities in translational neuro-oncology and research partnerships.</p>
+                <button onclick="navigate('contact')" class="bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                    Get In Touch
                 </button>
             </div>
         </section>
@@ -128,55 +165,49 @@
         <!-- 2. ABOUT -->
         <section id="about" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
-                <div class="flex flex-col md:flex-row gap-16">
+                <div class="flex flex-col md:flex-row gap-20">
                     <div class="md:w-1/3">
                         <div class="sticky top-28">
-                            <div class="aspect-square bg-gradient-to-br from-brand-100 to-brand-200 rounded-lg mb-6 flex items-center justify-center border border-brand-200 shadow-lg">
-                                <span class="text-brand-800/40 font-serif text-sm">[ Headshot ]</span>
+                            <div class="aspect-square bg-gradient-to-br from-brand-200 via-brand-100 to-brand-200 rounded-2xl mb-8 flex items-center justify-center border-2 border-brand-teal/30 shadow-xl">
+                                <span class="text-brand-800/30 font-mono text-sm">[ Headshot ]</span>
                             </div>
-                            <h1 class="font-serif text-2xl text-brand-teal font-bold mb-1">Dr. Ugoma Onubogu</h1>
-                            <p class="text-sm text-brand-800 mb-6 font-light">MD, PhD | Radiation Oncology</p>
-                            <a href="#" class="block w-full text-center bg-brand-teal hover:bg-brand-teal/90 text-brand-50 px-4 py-3 rounded text-sm font-bold transition-all shadow-lg">
-                                Download Full CV (PDF)
+                            <h1 class="font-display text-3xl text-brand-teal font-black uppercase tracking-tight mb-1">Dr. Ugoma</h1>
+                            <p class="text-sm text-brand-800 mb-8 font-light">MD, PhD | Radiation Oncology</p>
+                            <a href="#" class="block w-full text-center bg-brand-teal hover:bg-brand-accent text-brand-50 px-4 py-4 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-lg transform hover:scale-105">
+                                Download Full CV
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-2/3 space-y-12">
+                    <div class="md:w-2/3 space-y-16">
                         <div>
-                            <h2 class="font-serif text-2xl text-brand-teal font-bold mb-4 border-b-2 border-brand-teal pb-2">Biography</h2>
+                            <h2 class="headline text-2xl text-brand-teal mb-4 pb-3 border-b-2 border-brand-teal/30">Biography</h2>
                             <p class="text-brand-800 leading-relaxed mb-4 text-sm font-light">
-                                I am a physician-scientist training in radiation oncology, with a clinical and research focus on primary central nervous system malignancies. My overarching career goal is to use modern and creative approaches to bridge the gap between benchside biological discoveries and bedside clinical care.
+                                Physician-scientist training in radiation oncology, with a clinical and research focus on primary central nervous system malignancies. Leveraging modern approaches to bridge benchside biological discoveries and bedside clinical care.
                             </p>
                             <p class="text-brand-800 leading-relaxed text-sm font-light">
-                                Currently completing my residency at MD Anderson Cancer Center, my laboratory experience interrogates the tumor microenvironment of glioblastoma using advanced spatial transcriptomics and computational imaging analysis.
+                                Currently at MD Anderson Cancer Center, interrogating the tumor microenvironment of glioblastoma using advanced spatial transcriptomics and computational imaging analysis.
                             </p>
                         </div>
                         
                         <div>
-                            <h2 class="font-serif text-2xl text-brand-teal font-bold mb-4 border-b-2 border-brand-teal pb-2">Education & Training</h2>
+                            <h2 class="headline text-2xl text-brand-teal mb-6 pb-3 border-b-2 border-brand-teal/30">Education & Training</h2>
                             <ul class="space-y-6">
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal">Transitional Year Residency Program (Current) | 2026 – Present</div>
-                                    <div class="text-sm text-brand-800 font-light">AdventHealth Tampa, Tampa, FL </div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">Transitional Year | 2026 – Present</div>
+                                    <div class="text-sm text-brand-800 font-light">AdventHealth Tampa, FL</div>
                                 </li>
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal">Radiation Oncology Residency Program (Anticipated) | 2027 – 2031</div>
-                                    <div class="text-sm text-brand-800 font-light">MD Anderson Cancer Center, Houston, TX </div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">Radiation Oncology | 2027 – 2031</div>
+                                    <div class="text-sm text-brand-800 font-light">MD Anderson Cancer Center, TX</div>
                                 </li>
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal">MD / PhD Dual Degree Program | 2017 – 2026</div>
-                                    <div class="text-sm text-brand-800 font-light">Charles E. Schmidt College of Medicine at Florida Atlantic University, Boca Raton, FL</div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light">Gold Humanism Honor Society</div>
-                                    <div class="text-sm text-brand-800 font-light">Skaggs Graduate School of Chemical and Biological Science at Scripps Research, La Jolla, CA</div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light">Concentration: <em>Cancer genetics & Molecular Medicine</em></div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light">Graduate Thesis: <em>Spatial Analysis of Genetic Heterogeneity and Tumor Microenvironment Interactions in Glioblastoma.</em></div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">MD / PhD Program | 2017 – 2026</div>
+                                    <div class="text-sm text-brand-800 font-light">Florida Atlantic University, FL & Scripps Research, CA</div>
+                                    <div class="text-xs text-brand-800/70 mt-2 font-light">Focus: Cancer genetics & Molecular Medicine</div>
                                 </li>
                                 <li>
-                                    <div class="text-sm font-bold text-brand-teal">Bachelor of Science | 2012 – 2017</div>
-                                    <div class="text-sm text-brand-800 font-light">Florida Agricultural and Mechanical University, Tallahassee, FL</div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light">Major: <em>Biological Sciences</em></div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light">Minor: <em>Biochemistry</em></div>
-                                    <div class="text-xs text-brand-800/70 mt-1 font-light"><em>Summa Cum Laude</em></div>
+                                    <div class="text-sm font-bold text-brand-teal uppercase tracking-wider font-display">B.S. Biological Sciences | 2012 – 2017</div>
+                                    <div class="text-sm text-brand-800 font-light">Florida A&M University, FL • Summa Cum Laude</div>
                                 </li>
                             </ul>
                         </div>
@@ -188,18 +219,19 @@
         <!-- 3. RESEARCH -->
         <section id="research" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
-                <h1 class="font-serif text-4xl text-brand-teal font-bold mb-6">Research Program</h1>
-                <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-lg border-l-4 border-brand-teal pl-6 py-2 font-light">
-                    My research program is dedicated to understanding therapeutic resistance in neuro-oncology through a multi-omic lens. We leverage clinical data, tissue modeling, and computational methods to drive translational breakthroughs.
+                <h1 class="headline text-4xl text-brand-teal mb-6">Research Program</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
+                <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-base border-l-4 border-brand-teal pl-6 font-light">
+                    Dedicated to understanding therapeutic resistance in neuro-oncology through a multi-omic lens. Leveraging clinical data, tissue modeling, and computational methods to drive translational breakthroughs.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-8 bg-brand-100/50 border border-brand-200 rounded-lg shadow-md hover:shadow-lg transition-all backdrop-blur-sm">
-                        <h3 class="font-serif text-xl text-brand-teal font-bold mb-3">Spatial Tumor Microenvironment</h3>
-                        <p class="text-sm text-brand-800 leading-relaxed font-light">Utilizing spatial transcriptomics to map the intricate interactions between immune infiltrates and tumor cells following ionizing radiation.</p>
+                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl shadow-md hover:shadow-lg transition-all backdrop-blur-sm hover:border-brand-teal">
+                        <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Spatial Tumor Microenvironment</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Mapping intricate interactions between immune infiltrates and tumor cells following ionizing radiation using spatial transcriptomics.</p>
                     </div>
-                    <div class="p-8 bg-brand-100/50 border border-brand-200 rounded-lg shadow-md hover:shadow-lg transition-all backdrop-blur-sm">
-                        <h3 class="font-serif text-xl text-brand-teal font-bold mb-3">Radiogenomics</h3>
-                        <p class="text-sm text-brand-800 leading-relaxed font-light">Correlating non-invasive MRI features with underlying genomic alterations to create predictive biomarkers for treatment response.</p>
+                    <div class="p-8 bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl shadow-md hover:shadow-lg transition-all backdrop-blur-sm hover:border-brand-teal">
+                        <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider mb-3">Radiogenomics</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light">Correlating non-invasive MRI features with genomic alterations to create predictive biomarkers for treatment response.</p>
                     </div>
                 </div>
             </div>
@@ -208,9 +240,11 @@
         <!-- 4. PUBLICATIONS -->
         <section id="publications" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
-                <div class="flex justify-between items-end mb-10 border-b-2 border-brand-teal pb-4">
-                    <h1 class="font-serif text-4xl text-brand-teal font-bold">Selected Publications</h1>
-                    <a href="#" class="text-sm text-brand-teal hover:underline flex items-center font-bold">View Google Scholar &rarr;</a>
+                <div class="flex justify-between items-end mb-10 border-b-2 border-brand-teal pb-6">
+                    <div>
+                        <h1 class="headline text-4xl text-brand-teal">Selected Publications</h1>
+                    </div>
+                    <a href="#" class="text-sm text-brand-teal hover:underline flex items-center font-bold uppercase tracking-wider">View Scholar &rarr;</a>
                 </div>
                 
                 <div id="pubmed-results" class="space-y-8">
@@ -220,7 +254,7 @@
                             <div class="h-2 bg-brand-200 rounded w-1/2"></div>
                         </div>
                     </div>
-                    <p class="text-sm text-brand-800/60 italic font-light">Syncing latest publications from PubMed...</p>
+                    <p class="text-sm text-brand-800/60 italic font-light">Syncing publications...</p>
                 </div>
             </div>
         </section>
@@ -228,34 +262,35 @@
         <!-- 5. PROJECTS -->
         <section id="projects" class="page-section">
             <div class="max-w-6xl mx-auto px-6 py-20">
-                <h1 class="font-serif text-4xl text-brand-teal font-bold mb-4">Technical & Translational Projects</h1>
-                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light">Beyond academic publications, I build computational tools, analysis pipelines, and technical resources to advance clinical research infrastructure.</p>
+                <h1 class="headline text-4xl text-brand-teal mb-4">Technical Projects</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
+                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light">Computational tools, analysis pipelines, and technical resources advancing clinical research infrastructure.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-brand-100/50 border border-brand-200 rounded-lg overflow-hidden flex flex-col hover:shadow-xl transition-all backdrop-blur-sm">
-                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
-                            <span class="text-brand-800/40 font-mono text-sm">[ Project Interface Snapshot ]</span>
+                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col hover:shadow-2xl transition-all hover:border-brand-teal">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30">
+                            <span class="text-brand-800/30 font-mono text-sm font-bold">[ Interface ]</span>
                         </div>
                         <div class="p-8 flex-grow">
-                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold">Python • R • Nextflow</div>
-                            <h3 class="font-serif text-2xl text-brand-teal font-bold mb-3">GlioPipe: Spatial Data Workflow</h3>
+                            <div class="text-xs font-mono text-brand-teal mb-4 font-bold uppercase tracking-wider">Python • R • Nextflow</div>
+                            <h3 class="font-display text-xl text-brand-teal font-bold uppercase tracking-wider mb-4">GlioPipe</h3>
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
-                                An open-source, reproducible Nextflow pipeline designed to process and normalize complex spatial transcriptomics data specifically optimized for irradiated brain tissue architectures.
+                                Open-source Nextflow pipeline for spatial transcriptomics data processing optimized for irradiated brain tissue.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:underline">View Repository &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Repo &rarr;</a>
                         </div>
                     </div>
-                    <div class="bg-brand-100/50 border border-brand-200 rounded-lg overflow-hidden flex flex-col hover:shadow-xl transition-all backdrop-blur-sm">
-                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
-                            <span class="text-brand-800/40 font-mono text-sm">[ Clinical Dashboard ]</span>
+                    <div class="bg-brand-100/40 border-2 border-brand-teal/30 rounded-xl overflow-hidden flex flex-col hover:shadow-2xl transition-all hover:border-brand-teal">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b-2 border-brand-teal/30">
+                            <span class="text-brand-800/30 font-mono text-sm font-bold">[ Dashboard ]</span>
                         </div>
                         <div class="p-8 flex-grow">
-                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold">React • Flask • DICOM Integration</div>
-                            <h3 class="font-serif text-2xl text-brand-teal font-bold mb-3">OncoViz Dose Viewer</h3>
+                            <div class="text-xs font-mono text-brand-teal mb-4 font-bold uppercase tracking-wider">React • Flask • DICOM</div>
+                            <h3 class="font-display text-xl text-brand-teal font-bold uppercase tracking-wider mb-4">OncoViz</h3>
                             <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light">
-                                A lightweight, browser-based clinical tool built to overlay experimental dose distributions onto standard diagnostic MRIs for multi-disciplinary tumor board presentations.
+                                Browser-based clinical tool overlaying experimental dose distributions onto diagnostic MRIs.
                             </p>
-                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:underline">Read Case Study &rarr;</a>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent uppercase tracking-wider">View Case &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -265,31 +300,32 @@
         <!-- 6. COMMUNITY AND IMPACT -->
         <section id="service" class="page-section">
             <div class="max-w-5xl mx-auto px-6 py-20">
-                <h1 class="font-serif text-4xl text-brand-teal font-bold mb-4">Community and Impact</h1>
-                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light">Academic citizenship, teaching, and supporting the next generation of underrepresented scientists in medicine are core tenets of my career.</p>
+                <h1 class="headline text-4xl text-brand-teal mb-4">Community & Impact</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8"></div>
+                <p class="text-brand-800 mb-16 max-w-2xl text-base font-light">Academic citizenship and supporting the next generation of underrepresented scientists in medicine.</p>
                 
                 <div class="space-y-12">
                     <div>
-                        <h2 class="font-serif text-2xl text-brand-teal font-bold mb-6 border-b-2 border-brand-teal pb-2">Mentorship</h2>
+                        <h2 class="headline text-2xl text-brand-teal mb-6 pb-3 border-b-2 border-brand-teal/30">Mentorship</h2>
                         <ul class="space-y-6">
-                            <li class="bg-brand-100/50 p-6 border border-brand-200 rounded-lg shadow-md backdrop-blur-sm">
-                                <h3 class="font-semibold text-brand-teal">Undergraduate Research Mentor Program</h3>
-                                <p class="text-sm text-brand-800 mt-2 font-light">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students to co-authorship on peer-reviewed abstracts and subsequent medical school acceptance.</p>
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all">
+                                <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Undergraduate Research Mentor Program</h3>
+                                <p class="text-sm text-brand-800 mt-3 font-light">Supervised 4 undergraduate students in computational biology, guiding two to co-authorship and medical school acceptance.</p>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 class="font-serif text-2xl text-brand-teal font-bold mb-6 border-b-2 border-brand-teal pb-2">Academic Committees</h2>
+                        <h2 class="headline text-2xl text-brand-teal mb-6 pb-3 border-b-2 border-brand-teal/30">Academic Service</h2>
                         <ul class="space-y-6">
-                            <li class="bg-brand-100/50 p-6 border border-brand-200 rounded-lg shadow-md backdrop-blur-sm">
-                                <h3 class="font-semibold text-brand-teal">Resident Curriculum Review Board</h3>
-                                <div class="text-xs text-brand-teal font-bold mb-2">2023 - Present</div>
-                                <p class="text-sm text-brand-800 mt-1 font-light">Elected resident representative responsible for integrating emerging topics in radiogenomics and AI into the standard radiation oncology clinical curriculum.</p>
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all">
+                                <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Resident Curriculum Review Board</h3>
+                                <div class="text-xs text-brand-teal font-bold uppercase tracking-wider mt-2 mb-2">2023 - Present</div>
+                                <p class="text-sm text-brand-800 font-light">Integrating radiogenomics and AI into radiation oncology clinical curriculum.</p>
                             </li>
-                            <li class="bg-brand-100/50 p-6 border border-brand-200 rounded-lg shadow-md backdrop-blur-sm">
-                                <h3 class="font-semibold text-brand-teal">Diversity in Oncology Initiative</h3>
-                                <div class="text-xs text-brand-teal font-bold mb-2">2021 - 2023</div>
-                                <p class="text-sm text-brand-800 mt-1 font-light">Organized institutional outreach programs to local high schools, promoting STEM and clinical oncology careers to students from historically marginalized backgrounds.</p>
+                            <li class="bg-brand-100/40 p-8 border-2 border-brand-teal/30 rounded-xl hover:border-brand-teal transition-all">
+                                <h3 class="font-display text-lg text-brand-teal font-bold uppercase tracking-wider">Diversity in Oncology Initiative</h3>
+                                <div class="text-xs text-brand-teal font-bold uppercase tracking-wider mt-2 mb-2">2021 - 2023</div>
+                                <p class="text-sm text-brand-800 font-light">Organized outreach to promote STEM and clinical oncology careers to underrepresented students.</p>
                             </li>
                         </ul>
                     </div>
@@ -299,22 +335,23 @@
 
         <!-- 7. CONTACT -->
         <section id="contact" class="page-section">
-            <div class="max-w-4xl mx-auto px-6 py-24 text-center">
-                <h1 class="font-serif text-4xl text-brand-teal font-bold mb-4">Contact</h1>
-                <p class="text-brand-800 mb-10 max-w-lg mx-auto font-light">For academic inquiries, collaboration proposals, or speaking requests, please reach out via email or connect with me on professional platforms.</p>
+            <div class="max-w-4xl mx-auto px-6 py-32 text-center">
+                <h1 class="headline text-5xl text-brand-teal mb-6">Let's Connect</h1>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-10"></div>
+                <p class="text-brand-800 mb-12 max-w-lg mx-auto font-light text-lg">For academic inquiries, collaboration, or speaking requests.</p>
                 
-                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-teal/90 text-brand-50 px-8 py-4 rounded text-lg font-bold transition-all shadow-lg mb-12">
+                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-brand-50 px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-xl transform hover:scale-105 mb-16">
                     ugomaon@gmail.com
                 </a>
 
-                <div class="flex justify-center space-x-6">
-                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">LinkedIn</a>
-                    <span class="text-brand-200">|</span>
-                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">Google Scholar</a>
-                    <span class="text-brand-200">|</span>
-                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">GitHub</a>
-                    <span class="text-brand-200">|</span>
-                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">ORCID</a>
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold uppercase text-xs tracking-wider transition-colors">LinkedIn</a>
+                    <span class="text-brand-200">/</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold uppercase text-xs tracking-wider transition-colors">Scholar</a>
+                    <span class="text-brand-200">/</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold uppercase text-xs tracking-wider transition-colors">GitHub</a>
+                    <span class="text-brand-200">/</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold uppercase text-xs tracking-wider transition-colors">ORCID</a>
                 </div>
             </div>
         </section>
@@ -322,15 +359,15 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-100 border-t border-brand-200 text-brand-800 py-10 mt-auto shadow-inner">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm">
-            <div class="mb-4 md:mb-0 font-light">
-                &copy; <script>document.write(new Date().getFullYear())</script> Dr. Ugoma Onubogu. All rights reserved.
+    <footer class="bg-brand-100 border-t-2 border-brand-teal/30 text-brand-800 py-12 mt-auto">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs">
+            <div class="mb-6 md:mb-0 font-light uppercase tracking-wider">
+                &copy; <script>document.write(new Date().getFullYear())</script> Dr. Ugoma Onubogu
             </div>
-            <div class="flex space-x-6">
-                <a href="#" onclick="navigate('home')" class="hover:text-brand-teal transition-colors font-medium">Home</a>
-                <a href="#" onclick="navigate('publications')" class="hover:text-brand-teal transition-colors font-medium">Publications</a>
-                <a href="#" onclick="navigate('contact')" class="hover:text-brand-teal transition-colors font-medium">Contact</a>
+            <div class="flex space-x-8">
+                <a href="#" onclick="navigate('home')" class="hover:text-brand-teal transition-colors font-bold uppercase tracking-wider">Home</a>
+                <a href="#" onclick="navigate('publications')" class="hover:text-brand-teal transition-colors font-bold uppercase tracking-wider">Publications</a>
+                <a href="#" onclick="navigate('contact')" class="hover:text-brand-teal transition-colors font-bold uppercase tracking-wider">Contact</a>
             </div>
         </div>
     </footer>
@@ -365,7 +402,7 @@
                 const container = document.getElementById('pubmed-results');
 
                 if (!ids || ids.length === 0) {
-                    container.innerHTML = '<p class="text-sm text-brand-800 font-light">No recent publications found.</p>';
+                    container.innerHTML = '<p class="text-sm text-brand-800 font-light">No publications found.</p>';
                     return;
                 }
 
@@ -390,12 +427,12 @@
                                 <span class="font-bold text-brand-teal">${authors}.</span> (${date}). ${title} 
                                 <em class="text-brand-900">${journal}</em>.
                             </div>
-                            <div class="mt-2 flex gap-3">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/${id}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border border-brand-teal px-2 py-1 rounded hover:bg-brand-teal hover:text-brand-50 transition-colors font-medium">PubMed</a>
+                            <div class="mt-3 flex gap-3">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/${id}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal px-3 py-2 rounded hover:bg-brand-teal hover:text-brand-50 transition-all font-bold uppercase tracking-wider">PubMed</a>
                     `;
                     
                     if (doi) {
-                        html += `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border border-brand-teal px-2 py-1 rounded hover:bg-brand-teal hover:text-brand-50 transition-colors font-medium">DOI</a>`;
+                        html += `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal px-3 py-2 rounded hover:bg-brand-teal hover:text-brand-50 transition-all font-bold uppercase tracking-wider">DOI</a>`;
                     }
                     
                     html += `</div></div>`;
@@ -403,7 +440,7 @@
                 });
             } catch (error) {
                 console.error('Error fetching PubMed data:', error);
-                document.getElementById('pubmed-results').innerHTML = '<p class="text-sm text-brand-800/70 font-light">Unable to load publications from PubMed at this time.</p>';
+                document.getElementById('pubmed-results').innerHTML = '<p class="text-sm text-brand-800/70 font-light">Unable to load publications.</p>';
             }
         }
 
