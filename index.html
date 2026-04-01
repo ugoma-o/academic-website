@@ -190,6 +190,110 @@
             color: #d4a574;
             border: 1px solid #e8dcc8;
         }
+
+        /* DARK MODE STYLES */
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f3f8;
+            --text-primary: #3a4a5e;
+            --text-secondary: #5a6b7e;
+            --border-color: #e8eef5;
+            --teal: #5b9b94;
+            --accent: #6db3a8;
+        }
+
+        html.dark-mode {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a1f2e;
+            --bg-tertiary: #242d3d;
+            --text-primary: #e8eef5;
+            --text-secondary: #b8c5d6;
+            --border-color: #3a4a5e;
+            --teal: #5b9b94;
+            --accent: #6db3a8;
+        }
+
+        /* Smooth transition for theme */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        html.dark-mode body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        html.dark-mode main {
+            background: linear-gradient(to bottom right, #0f1419, #1a1f2e, #0f1419) !important;
+        }
+
+        html.dark-mode header {
+            background-color: rgba(26, 31, 46, 0.8) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .microscopy-bg {
+            opacity: 0.03;
+        }
+
+        html.dark-mode .cell-particle {
+            border-color: #5b9b94;
+        }
+
+        html.dark-mode .about-card {
+            background-color: rgba(36, 45, 61, 0.6) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .badge {
+            background-color: rgba(58, 74, 94, 0.8);
+            color: #6db3a8;
+        }
+
+        html.dark-mode .badge.gold {
+            background-color: rgba(58, 60, 50, 0.8);
+            color: #d4a574;
+            border-color: #5a5238 !important;
+        }
+
+        html.dark-mode .education-item:not(:last-child)::after {
+            background-color: var(--border-color) !important;
+        }
+
+        html.dark-mode footer {
+            background-color: rgba(26, 31, 46, 0.6) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .carousel-container {
+            border-color: var(--border-color);
+        }
+
+        html.dark-mode .nav-link.active-nav {
+            color: #6db3a8;
+            border-color: #6db3a8;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-white">
@@ -218,9 +322,13 @@
                 <button onclick="navigate('impact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="impact">Impact</button>
                 <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="contact">Contact</button>
             </nav>
-            <button class="md:hidden text-brand-900">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+            <div class="flex items-center gap-4">
+                <!-- THEME TOGGLE BUTTON -->
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+                <button class="md:hidden text-brand-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -625,8 +733,35 @@
         </div>
     </footer>
 
-    <!-- NAVIGATION LOGIC & SCROLL ANIMATIONS -->
+    <!-- NAVIGATION LOGIC & SCROLL ANIMATIONS & THEME TOGGLE -->
     <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Load theme preference from localStorage
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark-mode');
+                themeToggle.textContent = '🌙';
+            } else {
+                htmlElement.classList.remove('dark-mode');
+                themeToggle.textContent = '☀️';
+            }
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.textContent = isDarkMode ? '🌙' : '☀️';
+        });
+
+        // Load theme on page load
+        window.addEventListener('DOMContentLoaded', loadTheme);
+
         // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
