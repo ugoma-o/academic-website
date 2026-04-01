@@ -129,16 +129,11 @@
 
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-1300px); }
         }
 
         .carousel:hover {
             animation-play-state: paused;
-        }
-
-        /* Duplicate carousel for seamless loop */
-        .carousel-item:nth-child(n+14) {
-            animation-delay: -18.2s;
         }
     </style>
 </head>
