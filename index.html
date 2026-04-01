@@ -245,14 +245,14 @@
                             <button onclick="navigate('publications')" class="bg-brand-teal hover:bg-brand-accent text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md">
                                 View Publications
                             </button>
-                            <a href="#" class="bg-white border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-3 rounded-full text-sm font-medium transition-all shadow-sm">
+                            <a href="#" class="bg-white border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-3 rounded-full text-sm font-medium transition-all">
                                 Download CV
                             </a>
                         </div>
                     </div>
                     <div class="hidden md:block scroll-reveal" style="animation-delay: 0.1s;">
                         <div class="aspect-square bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl shadow-lg flex items-center justify-center border border-brand-300 relative overflow-hidden">
-                            <span class="text-brand-800/30 font-serif italic">[ Professional Portrait ]</span>
+                            <img src="Images/Headshot Clean 3.jpg" alt="Professional Portrait" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -413,19 +413,19 @@
                         <div class="space-y-5">
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Neuro-Oncology</div>
-                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Understanding therapeutic resistance mechanisms in CNS malignancies through integrated clinical-biological approaches. Focus on treatment resistance and innovative therapeutic strategies.</div>
+                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Understanding therapeutic resistance mechanisms in CNS malignancies through integrated clinical-biological approaches.</div>
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Spatial Omics</div>
-                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Advanced transcriptomic profiling to dissect tumor-immune microenvironment interactions and identify cellular mechanisms driving treatment response and resistance.</div>
+                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Advanced transcriptomic profiling to dissect tumor-immune microenvironment interactions and identify cellular mechanisms.</div>
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Radiogenomics</div>
-                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Correlating non-invasive quantitative imaging features with underlying genomic and pathophysiologic alterations to predict treatment outcomes.</div>
+                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Correlating non-invasive quantitative imaging features with underlying genomic and pathophysiologic alterations.</div>
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Quality Improvement</div>
-                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Developing automation and machine learning applications to optimize clinical workflows and translate research discoveries into patient care.</div>
+                                <div class="text-xs text-brand-800/70 font-light leading-relaxed">Developing automation and machine learning applications to optimize clinical workflows and translate research discoveries.</div>
                             </div>
                         </div>
                     </div>
@@ -568,7 +568,7 @@
                         <ul class="space-y-6">
                             <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
                                 <h3 class="font-semibold text-brand-navy">Undergraduate Research Mentor Program</h3>
-                                <p class="text-sm text-brand-800 mt-2 font-light">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students to co-authorship on peer-reviewed abstracts and subsequent medical school acceptance.</p>
+                                <p class="text-sm text-brand-800 mt-2 font-light">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students to co-authorship on peer-reviewed publications.</p>
                             </li>
                         </ul>
                     </div>
@@ -711,11 +711,11 @@
                                 <em class="text-brand-900">${journal}</em>.
                             </div>
                             <div class="mt-3 flex gap-3">
-                                <a href="https://pubmed.ncbi.nlm.nih.gov/${id}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase tracking-wider">PubMed</a>
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/${id}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase">PubMed</a>
                     `;
                     
                     if (doi) {
-                        html += `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase tracking-wider">DOI</a>`;
+                        html += `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase">DOI</a>`;
                     }
                     
                     html += `</div></div>`;
