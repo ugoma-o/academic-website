@@ -116,14 +116,14 @@
          /* Desktop animation - larger images */
          @media (min-width: 768px) {
              .carousel {
-                 animation: scrollDesktop 170s linear infinite;
+                 animation: scrollDesktop 180s linear infinite;
              }
          }
 
         /* Mobile carousel animation */
         @keyframes scrollMobile {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-7840px); }
+            100% { transform: translateX(-11200ppx); }
         }
 
         /* Desktop carousel animation */
@@ -135,8 +135,8 @@
         /* Mobile: 280px width, 200px height */
         /* Desktop: 400px width, 300px height */
         .carousel-item {
-            min-width: 280px;
-            height: 200px;
+            min-width: 400px;
+            height: 300px;
             margin-right: 1rem;
             border-radius: 1.5rem;
             overflow: hidden;
