@@ -109,7 +109,27 @@
 
         .carousel {
             display: flex;
-            animation: scroll 90s linear infinite;
+            /* Mobile: 14 items × 280px = 3920px, Desktop: 14 items × 400px = 5600px */
+            animation: scrollMobile 120s linear infinite;
+        }
+
+        /* Desktop animation - larger images */
+        @media (min-width: 768px) {
+            .carousel {
+                animation: scrollDesktop 90s linear infinite;
+            }
+        }
+
+        /* Mobile carousel animation */
+        @keyframes scrollMobile {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-3920px); }
+        }
+
+        /* Desktop carousel animation */
+        @keyframes scrollDesktop {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-5824px); }
         }
 
         /* Mobile: 280px width, 200px height */
@@ -134,11 +154,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-5824px); }
         }
 
         .carousel:hover {
@@ -472,7 +487,7 @@
                 <div class="scroll-reveal mb-20">
                     <div class="carousel-container shadow-lg">
                         <div class="carousel">
-                            <!-- Randomized image order - 6.4s per image -->
+                            <!-- 14 images total (duplicated below for seamless loop) -->
                             <div class="carousel-item">
                                 <img src="Images/poster.png" alt="Research Poster">
                             </div>
