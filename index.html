@@ -109,7 +109,7 @@
 
         .carousel {
             display: flex;
-            /* Mobile: 28 items × 280px = 7840px, Desktop: 28 items × 400px = 11200px */
+            /* Mobile: 28 items × 320px = 8960px, Desktop: 28 items × 400px = 11200px */
             animation: scrollMobile 120s linear infinite;
         }
 
@@ -123,7 +123,7 @@
         /* Mobile carousel animation */
         @keyframes scrollMobile {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-7840px); }
+            100% { transform: translateX(-8960px); }
         }
 
         /* Desktop carousel animation */
@@ -132,11 +132,11 @@
             100% { transform: translateX(-11200px); }
         }
 
-        /* Mobile: 280px width, 200px height */
+        /* Mobile: 320px width, 240px height */
         /* Desktop: 400px width, 300px height */
         .carousel-item {
-            min-width: 280px;
-            height: 200px;
+            min-width: 320px;
+            height: 240px;
             margin-right: 1rem;
             border-radius: 1.5rem;
             overflow: hidden;
