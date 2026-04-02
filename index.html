@@ -413,11 +413,11 @@
 
     <!-- NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-200 shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-start gap-12">
             <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase header-logo" onclick="navigate('about')">
                 Ugoma Onubogu, MD PhD
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm text-brand-800 tracking-wide">
+            <nav class="hidden md:flex space-x-4 text-sm text-brand-800 tracking-wide">
                 <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="about">About</button>
                 <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="research">Research</button>
                 <button onclick="navigate('publications')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="publications">Publications</button>
@@ -426,7 +426,7 @@
                 <button onclick="navigate('impact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="impact">Impact</button>
                 <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="contact">Contact</button>
             </nav>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 ml-auto">
                 <!-- THEME TOGGLE BUTTON -->
                 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
                 <button class="md:hidden text-brand-900 mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
