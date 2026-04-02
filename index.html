@@ -100,7 +100,7 @@
             transform: translateY(0);
         }
 
-        /* Image carousel styles - RESPONSIVE - FIXED */
+        /* Image carousel styles - RESPONSIVE */
         .carousel-container {
             position: relative;
             overflow: hidden;
@@ -109,34 +109,34 @@
 
         .carousel {
             display: flex;
-            /* Mobile: 28 items × 320px = 8960px, Desktop: 28 items × 420px = 11760px */
-            animation: scrollMobile 140s linear infinite;
+            /* Mobile: 28 items × 280px = 7840px, Desktop: 28 items × 400px = 11200px */
+            animation: scrollMobile 120s linear infinite;
         }
 
         /* Desktop animation - larger images */
         @media (min-width: 768px) {
             .carousel {
-                animation: scrollDesktop 100s linear infinite;
+                animation: scrollDesktop 90s linear infinite;
             }
         }
 
-        /* Mobile carousel animation - FIXED */
+        /* Mobile carousel animation */
         @keyframes scrollMobile {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-8960px); }
+            100% { transform: translateX(-7840px); }
         }
 
-        /* Desktop carousel animation - FIXED */
+        /* Desktop carousel animation */
         @keyframes scrollDesktop {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-11760px); }
+            100% { transform: translateX(-11200px); }
         }
 
-        /* Mobile: 320px width, 240px height - FIXED */
-        /* Desktop: 420px width, 315px height - FIXED */
+        /* Mobile: 280px width, 200px height */
+        /* Desktop: 400px width, 300px height */
         .carousel-item {
-            min-width: 320px;
-            height: 240px;
+            min-width: 280px;
+            height: 200px;
             margin-right: 1rem;
             border-radius: 1.5rem;
             overflow: hidden;
@@ -145,8 +145,8 @@
 
         @media (min-width: 768px) {
             .carousel-item {
-                min-width: 420px;
-                height: 315px;
+                min-width: 400px;
+                height: 300px;
             }
         }
 
@@ -595,6 +595,7 @@
                         <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">
                             My overarching career goal is to use modern and creative approaches to translate benchside discoveries directly into clinically actionable insights that improve outcomes in cancer patients.
                         </p>
+                       
                     </div>
 
                     <!-- Education Card -->
@@ -957,8 +958,37 @@
                 }
             });
 
+            // Update URL with history API
+            window.history.pushState({section: pageId}, '', `#${pageId}`);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Handle back/forward browser buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.section) {
+                const pageId = event.state.section;
+                document.querySelectorAll('.page-section').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+                
+                document.querySelectorAll('.nav-link').forEach(el => {
+                    el.classList.remove('active-nav');
+                    if (el.getAttribute('data-target') === pageId) {
+                        el.classList.add('active-nav');
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Initialize URL on page load if hash exists
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.slice(1);
+            if (hash && document.getElementById(hash)) {
+                navigate(hash);
+            }
+        });
 
         async function fetchPubMedPublications() {
             const authorQuery = "Ugoma Onubogu AND oncology"; 
