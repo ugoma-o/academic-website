@@ -1,234 +1,1051 @@
-<!-- 2. RESEARCH PROGRAM -->
-<section id="research" class="page-section">
-    <div class="max-w-6xl mx-auto px-6 py-20">
-        <h1 class="font-serif text-4xl text-brand-navy font-bold mb-6 scroll-reveal">Research Program</h1>
-        <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
-        <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-lg border-l-4 border-brand-teal pl-6 py-2 font-light scroll-reveal text-justify">
-            My research program spans translational neuro-oncology, spatial genomics, and clinical outcomes research. Below is a comprehensive timeline of my research experience across five institutions.
-        </p>
-
-        <!-- HERBERT WERTHEIM UF SCRIPPS -->
-        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 mt-16 scroll-reveal border-b-2 border-brand-teal/20 pb-3">Herbert Wertheim UF Scripps Institute, Jupiter, FL</h2>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugoma Onubogu</title>
+    <meta name="description" content="Academic portfolio of Dr. Ugoma Onubogu, Resident Physician in Radiation Oncology and Translational Neuro-Oncologist.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f8f9fb',
+                            100: '#f0f3f8',
+                            200: '#e8eef5',
+                            300: '#dfe8f0',
+                            800: '#5a6b7e',
+                            900: '#3a4a5e',
+                            navy: '#4a5d7a',
+                            teal: '#5b9b94',
+                            slate: '#687a8f',
+                            cream: '#faf9f7',
+                            accent: '#6db3a8',
+                        }
+                    },
+                    letterSpacing: {
+                        tighter: '-0.05em',
+                        tight: '-0.025em',
+                        caps: '0.15em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-section { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .nav-link.active-nav { color: #5b9b94; font-weight: 700; border-bottom: 2px solid #5b9b94; }
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <!-- Project 1 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Elucidation of key biological mechanisms of oncofetal protein, IMP2, in pediatric high-grade glioma</h3>
-                    <span class="badge bg-brand-teal text-white text-xs">Ongoing</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>PIs:</strong> Michalina Janiszewska Ph.D., Kelsey Wolfe B.Sc.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Co-investigator – Post Doctoral Research Project</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Transcriptomic analysis of IMP2 expression patterns</li>
-                    <li>RNA sequencing pipeline development</li>
-                    <li>In silico image analysis and biomarker identification</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Transcriptomics</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">RNA-seq</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Oncology</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Sep 2024 – Ongoing</p>
-            </div>
+        .headline { 
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 800;
+        }
+        
+        /* Subtle microscopy background */
+        .microscopy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .cell-particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            border: 1px solid #5b9b94;
+        }
+        
+        .cell-particle.large {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .cell-particle.medium {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .cell-particle.small {
+            width: 50px;
+            height: 50px;
+        }
+        
+        main { position: relative; z-index: 1; }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            <!-- Project 2 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Machine learning approach for analyzing texture and morphometry markers of glioblastoma TERT promoter mutations</h3>
-                    <span class="badge bg-brand-teal text-white text-xs">Published</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>PIs:</strong> Michalina Janiszewska Ph.D., Pinaki Sarder Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Co-investigator – Graduate Research</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Digital pathology pipeline development</li>
-                    <li>ML-based automated mutation prediction</li>
-                    <li>DAPI fluorescence tissue image analysis</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Machine Learning</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Digital Pathology</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">SPIE 2025</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Aug 2023 – Apr 2025</p>
+        /* Image carousel styles - RESPONSIVE */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .carousel {
+            display: flex;
+            /* Mobile: 28 items × 280px = 7840px, Desktop: 28 items × 400px = 11200px */
+            animation: scrollMobile 120s linear infinite;
+        }
+
+        /* Desktop animation - larger images */
+        @media (min-width: 768px) {
+            .carousel {
+                animation: scrollDesktop 90s linear infinite;
+            }
+        }
+
+        /* Mobile carousel animation */
+        @keyframes scrollMobile {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-7840px); }
+        }
+
+        /* Desktop carousel animation */
+        @keyframes scrollDesktop {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-11200px); }
+        }
+
+        /* Mobile: 280px width, 200px height */
+        /* Desktop: 400px width, 300px height */
+        .carousel-item {
+            min-width: 280px;
+            height: 200px;
+            margin-right: 1rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .carousel-item {
+                min-width: 400px;
+                height: 300px;
+            }
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
+        /* About section cards */
+        .about-card {
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .education-item {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background-color: #5b9b94;
+            border-radius: 50%;
+        }
+
+        .education-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 16px);
+            background-color: #e8eef5;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #f0f3f8;
+            color: #5b9b94;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+            margin-right: 4px;
+        }
+
+        .badge.gold {
+            background-color: #fffbf0;
+            color: #d4a574;
+            border: 1px solid #e8dcc8;
+        }
+
+        /* DARK MODE STYLES */
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f3f8;
+            --text-primary: #3a4a5e;
+            --text-secondary: #5a6b7e;
+            --border-color: #e8eef5;
+            --teal: #5b9b94;
+            --accent: #6db3a8;
+        }
+
+        html.dark-mode {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a1f2e;
+            --bg-tertiary: #242d3d;
+            --text-primary: #e8eef5;
+            --text-secondary: #b8c5d6;
+            --border-color: #3a4a5e;
+            --teal: #5b9b94;
+            --accent: #6db3a8;
+        }
+
+        /* Smooth transition for theme */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        html.dark-mode body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        html.dark-mode main {
+            background: linear-gradient(to bottom right, #0f1419, #1a1f2e, #0f1419) !important;
+        }
+
+        html.dark-mode header {
+            background-color: rgba(26, 31, 46, 0.8) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .microscopy-bg {
+            opacity: 0.03;
+        }
+
+        html.dark-mode .cell-particle {
+            border-color: #5b9b94;
+        }
+
+        html.dark-mode .about-card {
+            background-color: rgba(36, 45, 61, 0.6) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .badge {
+            background-color: rgba(58, 74, 94, 0.8);
+            color: #6db3a8;
+        }
+
+        html.dark-mode .badge.gold {
+            background-color: rgba(58, 60, 50, 0.8);
+            color: #d4a574;
+            border-color: #5a5238 !important;
+        }
+
+        html.dark-mode .education-item:not(:last-child)::after {
+            background-color: var(--border-color) !important;
+        }
+
+        html.dark-mode footer {
+            background-color: rgba(26, 31, 46, 0.6) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        html.dark-mode .carousel-container {
+            border-color: var(--border-color);
+        }
+
+        html.dark-mode .nav-link.active-nav {
+            color: #6db3a8;
+            border-color: #6db3a8;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Logo hide on scroll */
+        .header-logo {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-logo.logo-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* MOBILE MENU STYLES */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e8eef5;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            z-index: 40;
+        }
+
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu a, .mobile-menu button {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            color: #5a6b7e;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            transition: background-color 0.2s ease;
+        }
+
+        .mobile-menu a:hover, .mobile-menu button:hover {
+            background-color: #f0f3f8;
+            color: #5b9b94;
+        }
+
+        .mobile-menu-btn {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn.active {
+            transform: rotate(90deg);
+        }
+
+        html.dark-mode .mobile-menu {
+            background-color: rgba(26, 31, 46, 0.95);
+            border-bottom-color: var(--border-color);
+        }
+
+        html.dark-mode .mobile-menu a,
+        html.dark-mode .mobile-menu button {
+            color: var(--text-secondary);
+        }
+
+        html.dark-mode .mobile-menu a:hover,
+        html.dark-mode .mobile-menu button:hover {
+            background-color: rgba(58, 74, 94, 0.6);
+            color: #6db3a8;
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-white">
+
+    <!-- Subtle Background -->
+    <div class="microscopy-bg" id="microscopyBg">
+        <div class="cell-particle large" style="top: 5%; left: 10%; opacity: 0.04;"></div>
+        <div class="cell-particle medium" style="top: 25%; right: 8%; opacity: 0.05;"></div>
+        <div class="cell-particle small" style="top: 50%; left: 5%; opacity: 0.03;"></div>
+        <div class="cell-particle large" style="bottom: 10%; right: 12%; opacity: 0.04;"></div>
+        <div class="cell-particle medium" style="bottom: 25%; left: 15%; opacity: 0.05;"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-start gap-12">
+            <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase header-logo" onclick="navigate('about')">
+                Ugoma Onubogu, MD PhD
+            </div>
+            <nav class="hidden md:flex space-x-4 text-sm text-brand-800 tracking-wide">
+                <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="about">About</button>
+                <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="research">Research</button>
+                <button onclick="navigate('publications')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="publications">Publications</button>
+                <button onclick="navigate('projects')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="projects">Projects</button>
+                <button onclick="navigate('news')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="news">News</button>
+                <button onclick="navigate('impact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="impact">Impact</button>
+                <button onclick="navigate('contact')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="contact">Contact</button>
+            </nav>
+            <div class="flex items-center gap-4 ml-auto">
+                <!-- THEME TOGGLE BUTTON -->
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+                <button class="md:hidden text-brand-900 mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
         </div>
+    </header>
 
-        <!-- SCRIPPS RESEARCH LA JOLLA -->
-        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 mt-16 scroll-reveal border-b-2 border-brand-teal/20 pb-3">Scripps Research, La Jolla, CA / Jupiter, FL</h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <!-- Project 3 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Collateral lethality between HDAC1 and HDAC2</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Complete</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>PIs:</strong> Michael Erb Ph.D., Yuxiang Zhang Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Co-investigator – Graduate Research</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Genetic interaction investigation</li>
-                    <li>Demonstrated HDAC2 inhibition therapeutic potential</li>
-                    <li>Published Nature Structural & Molecular Biology (2023)</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Genetics</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">HDAC Inhibition</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Nature Publ.</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Mar 2022 – May 2023</p>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Single-cell heterogeneity of EGFR and CDK4 co-amplification in glioblastoma</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Published</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>PIs:</strong> Michalina Janiszewska Ph.D., Kacper Walentynowicz Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Co-investigator – Graduate Research</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Spatial profiling of oncogenic amplifications</li>
-                    <li>Identified patterns of immune infiltration</li>
-                    <li>Cell Reports publication (2023)</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Spatial Biology</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Single-cell</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Cell Reports</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Feb 2020 – May 2021</p>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.2s;">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Multiregional Biopsies and Neurosphere Cultures Reveal Spatial Divergence In GBM Evolution</h3>
-                    <span class="badge bg-brand-teal text-white text-xs">Ongoing</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>PIs:</strong> Michalina Janiszewska Ph.D., Roberto Salatino Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Co-Investigator – Graduate Research</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Profiling of MRI-defined tumor regions</li>
-                    <li>5-ALA fluorescence-guided biopsy separation</li>
-                    <li>SNO Annual Meeting poster (2024)</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Spatial Genomics</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Neurospheres</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Multiomics</span>
-                </div>
-                <p class="text-xs text-brand-800/60">May 2020 – Ongoing</p>
-            </div>
-
-            <!-- Project 6 - Doctoral Thesis -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.3s;">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Spatial Analysis of Genetic Heterogeneity and TME Interactions in Glioblastoma</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Defended</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>Advisor:</strong> Michalina Janiszewska Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Primary Investigator – Doctoral Thesis</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Intratumoral heterogeneity investigation</li>
-                    <li>Spatial tumor-immune interactions documentation</li>
-                    <li>JCI Insight publication (2024)</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Thesis</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Heterogeneity</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">JCI Insight</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Feb 2020 – Feb 2024</p>
-            </div>
-
-            <!-- Project 7 -->
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.4s;">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Methylation of TWIST1 Promoters Predicts Mesenchymal Stem Cell Function</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Complete</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>Advisor:</strong> Donald Phinney Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Graduate Research Assistant</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Potency assay development</li>
-                    <li>MSC functionality scale for clinical applications</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Epigenetics</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">MSC Biology</span>
-                </div>
-                <p class="text-xs text-brand-800/60">May 2017 – Jul 2018</p>
-            </div>
-        </div>
-
-        <!-- FAU TRAINING PROGRAM -->
-        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 mt-16 scroll-reveal border-b-2 border-brand-teal/20 pb-3">Florida Atlantic University, Boca Raton, FL – Schmidt College of Medicine</h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">BMJ Research to Publication – Clinical Research Course</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Complete</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Program:</strong> E-learning with UCSF</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>8 comprehensive multimedia modules</li>
-                    <li>Research design through publication</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Training</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Clinical Research</span>
-                </div>
-                <p class="text-xs text-brand-800/60">Feb 2018 – Jun 2018</p>
-            </div>
-        </div>
-
-        <!-- UCLA UNDERGRADUATE -->
-        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 mt-16 scroll-reveal border-b-2 border-brand-teal/20 pb-3">University of California Los Angeles, Los Angeles, CA</h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Network Analysis of Gastric Cancer Across Populations</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Complete</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>Advisor:</strong> Xia Yang Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Undergraduate Research Intern</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Transcriptome data analysis</li>
-                    <li>Gene network reconstruction</li>
-                    <li>Novel driver pathway identification</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Genomics</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Network Biology</span>
-                </div>
-                <p class="text-xs text-brand-800/60">May 2016 – Dec 2016</p>
-            </div>
-        </div>
-
-        <!-- FAMU UNDERGRADUATE -->
-        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 mt-16 scroll-reveal border-b-2 border-brand-teal/20 pb-3">Florida Agricultural and Mechanical University, Tallahassee, FL</h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="font-serif text-lg text-brand-navy font-bold max-w-xs">Regulatory Elements in 5'-UTR of Viral RNAs</h3>
-                    <span class="badge bg-brand-accent text-white text-xs">Complete</span>
-                </div>
-                <p class="text-xs text-brand-800/70 mb-3"><strong>Advisor:</strong> Anita Nag Ph.D.</p>
-                <p class="text-xs text-brand-800/70 mb-4"><strong>Role:</strong> Undergraduate Research Fellow</p>
-                <ul class="text-sm text-brand-800 space-y-1 mb-4 list-disc list-inside font-light">
-                    <li>Host shut-off pathway analysis</li>
-                    <li>Sequence and structural characteristics investigation</li>
-                </ul>
-                <div class="flex gap-2 flex-wrap mb-4">
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">Virology</span>
-                    <span class="text-xs bg-brand-100 text-brand-teal px-2 py-1 rounded">RNA Biology</span>
-                </div>
-                <p class="text-xs text-brand-800/60">May 2014 – Apr 2016</p>
-            </div>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button onclick="navigate('about'); toggleMobileMenu();" class="nav-link">About</button>
+            <button onclick="navigate('research'); toggleMobileMenu();" class="nav-link">Research</button>
+            <button onclick="navigate('publications'); toggleMobileMenu();" class="nav-link">Publications</button>
+            <button onclick="navigate('projects'); toggleMobileMenu();" class="nav-link">Projects</button>
+            <button onclick="navigate('news'); toggleMobileMenu();" class="nav-link">News</button>
+            <button onclick="navigate('impact'); toggleMobileMenu();" class="nav-link">Impact</button>
+            <button onclick="navigate('contact'); toggleMobileMenu();" class="nav-link">Contact</button>
         </div>
     </div>
-</section>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow w-full bg-gradient-to-br from-brand-cream via-brand-50 to-brand-cream">
+
+        <!-- 1. ABOUT -->
+        <section id="about" class="page-section active">
+            <div class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+                <!-- Hero Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                    <div class="scroll-reveal">
+                        <h1 class="font-serif text-2xl md:text-3xl lg:text-4xl text-brand-navy font-bold leading-tight mb-6">
+                            Ugoma Onubogu, MD PhD
+                        </h1>
+                        <h2 class="text-brand-teal font-semibold tracking-caps uppercase text-sm mb-4">Resident Physician | PGY-I</h2>
+                       
+                        <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                        <p class="text-lg text-brand-800 leading-relaxed mb-20 max-w-lg font-light">
+                            Integrating translational research, interventional therapeutics, and quality improvement to improve patient outcomes in neuro-oncology.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="navigate('contact')" class="bg-brand-teal hover:bg-brand-accent text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md">
+                                Connect
+                            </button>
+                            <a href="#" class="bg-white border-2 border-brand-teal hover:border-brand-accent hover:text-brand-teal text-brand-800 px-8 py-3 rounded-full text-sm font-medium transition-all">
+                                Download CV
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block scroll-reveal" style="animation-delay: 0.1s;">
+                        <div class="aspect-square bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl shadow-lg flex items-center justify-center border border-brand-300 relative overflow-hidden">
+                            <img src="Images/Headshot Clean 3.jpg" alt="Professional Portrait" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Carousel Section -->
+                <div class="scroll-reveal mb-20">
+                    <div class="carousel-container shadow-lg">
+                        <div class="carousel">
+                            <!-- 14 images total (duplicated below for seamless loop) -->
+                            <div class="carousel-item">
+                                <img src="Images/poster.png" alt="Research Poster">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/tme.jpg" alt="Tumor Microenvironment">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Scripps.jpg" alt="Scripps Research">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/GBM_collection.jpg" alt="Glioblastoma Collection">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/cytoskeleton.jpg" alt="Cytoskeleton">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/MDA_group1.jpg" alt="MD Anderson Group 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/CytoWC.jpg" alt="Cytoskeleton Research">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Dissertation.jpg" alt="Dissertation">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/GHHS.jpg" alt="GHHS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/segment.jpg" alt="Segmentation">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/MDA_group2.jpg" alt="MD Anderson Group 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/sno2022.jpg" alt="SNO 2022 Conference">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Symposium.jpg" alt="Symposium">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/sidegig.jpg" alt="Side Project">
+                            </div>
+                            <!-- Duplicates for seamless loop -->
+                            <div class="carousel-item">
+                                <img src="Images/poster.png" alt="Research Poster">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/tme.jpg" alt="Tumor Microenvironment">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Scripps.jpg" alt="Scripps Research">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/GBM_collection.jpg" alt="Glioblastoma Collection">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/cytoskeleton.jpg" alt="Cytoskeleton">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/MDA_group1.jpg" alt="MD Anderson Group 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/CytoWC.jpg" alt="Cytoskeleton Research">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Dissertation.jpg" alt="Dissertation">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/GHHS.jpg" alt="GHHS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/segment.jpg" alt="Segmentation">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/MDA_group2.jpg" alt="MD Anderson Group 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/sno2022.jpg" alt="SNO 2022 Conference">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/Symposium.jpg" alt="Symposium">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Images/sidegig.jpg" alt="Side Project">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-sm text-brand-800/60 mt-4 font-light">Hover to pause • Scroll through research and clinical highlights</p>
+                </div>
+
+                <!-- About Bio Cards Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-20">
+                    <!-- Bio Card -->
+                    <div class="about-card bg-white/60 border border-brand-200 rounded-2xl p-8 shadow-sm hover:shadow-md backdrop-blur-xs scroll-reveal">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-accent rounded-full flex items-center justify-center text-white font-bold text-lg">📖</div>
+                            <h3 class="font-serif text-xl text-brand-navy font-bold ml-4">Bio</h3>
+                        </div>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light mb-4 text-justify">
+                            Hi! I'm Ugoma. I'm a Florida-native, and have lived across the state throughout my training (north, south, and central FL!). I'm currently a radiation oncology resident physician with plans to specialize in primary central nervous system malignancies.
+                        </p>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light mb-4 text-justify">
+                            During my PhD training, I developed experience in molecular and cell biology, spatial genomics, RNA sequencing, computational analysis, and advanced microscopy applied to glioblastoma. This background informs my approach to studying tumor biology as an integrated, multi-scale system.
+                        </p>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">
+                            My overarching career goal is to use modern and creative approaches to translate benchside discoveries directly into clinically actionable insights that improve outcomes in cancer patients.
+                        </p>
+                       
+                    </div>
+
+                    <!-- Education Card -->
+                    <div class="about-card bg-white/60 border border-brand-200 rounded-2xl p-8 shadow-sm hover:shadow-md backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-accent rounded-full flex items-center justify-center text-white font-bold text-lg">🎓</div>
+                            <h3 class="font-serif text-xl text-brand-navy font-bold ml-4">Education</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="education-item">
+                                <div class="text-xs font-bold text-brand-teal uppercase tracking-wider">2027–2031</div>
+                                <div class="text-sm font-semibold text-brand-navy">Radiation Oncology Residency Program</div>
+                                <div class="text-xs text-brand-800/60 font-light">MD Anderson Cancer Center</div>
+                            </div>
+                            <div class="education-item">
+                                <div class="text-xs font-bold text-brand-teal uppercase tracking-wider">2026–2027</div>
+                                <div class="text-sm font-semibold text-brand-navy">Transitional Year Residency Program</div>
+                                <div class="text-xs text-brand-800/60 font-light">AdventHealth Tampa</div>
+                            </div>
+                            <div class="education-item">
+                                <div class="text-xs font-bold text-brand-teal uppercase tracking-wider">2017–2026</div>
+                                <div class="text-sm font-semibold text-brand-navy">MD / PhD Dual Degree Program</div>
+                                <div class="text-xs text-brand-800/60 font-light">Florida Atlantic University (FAU) & Scripps Research</div>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="badge gold">🎖️ Gold Humanism Honor Society</span>
+                                    <span class="badge gold">🏆 AMA Foundation Physicians of Tomorrow Award</span>
+                                </div>
+                            </div>
+                            <div class="education-item">
+                                <div class="text-xs font-bold text-brand-teal uppercase tracking-wider">2014–2017</div>
+                                <div class="text-sm font-semibold text-brand-navy">Bachelor of Science</div>
+                                <div class="text-xs text-brand-800/60 font-light">Florida Agricultural and Mechanical University (FAMU)</div>
+                                <span class="badge">Summa Cum Laude</span>
+                                <span class="badge gold">🏆 FAMU Scholar of Excellence Award</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlights Card -->
+                    <div class="about-card bg-white/60 border border-brand-200 rounded-2xl p-8 shadow-sm hover:shadow-md backdrop-blur-xs scroll-reveal" style="animation-delay: 0.2s;">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-accent rounded-full flex items-center justify-center text-white font-bold text-lg">⭐</div>
+                            <h3 class="font-serif text-xl text-brand-navy font-bold ml-4">Interest Areas</h3>
+                        </div>
+                        <div class="space-y-5">
+                            <div>
+                                <div class="text-sm font-semibold text-brand-navy mb-2">Neuro-Oncology</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Understanding therapeutic resistance mechanisms in CNS malignancies through integrated clinical-biological approaches.</div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-brand-navy mb-2">Spatial Omics</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Advanced multi-omic profiling to dissect tumor microenvironment interactions and identify cellular mechanisms.</div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-brand-navy mb-2">Radiogenomics</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Correlating non-invasive quantitative imaging features with underlying genomic and pathophysiologic alterations.</div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-brand-navy mb-2">Quality Improvement</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Developing automation and machine learning applications to optimize clinical workflows and translate research discoveries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. RESEARCH PROGRAM -->
+        <section id="research" class="page-section">
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-6 scroll-reveal">Research Program</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-lg border-l-4 border-brand-teal pl-6 py-2 font-light scroll-reveal text-justify">
+                    My research program is dedicated to understanding therapeutic resistance in neuro-oncology through a multi-omic lens. We leverage clinical data, tissue modeling, and computational methods to drive translational breakthroughs.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal">
+                        <h3 class="font-serif text-xl text-brand-navy font-bold mb-3">Spatial Tumor Microenvironment</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">Utilizing spatial transcriptomics to map the intricate interactions between immune infiltrates and tumor cells following ionizing radiation.</p>
+                    </div>
+                    <div class="p-8 bg-white/50 border border-brand-200 rounded-2xl shadow-sm hover:shadow-md transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
+                        <h3 class="font-serif text-xl text-brand-navy font-bold mb-3">Radiogenomics</h3>
+                        <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">Correlating non-invasive MRI features with underlying genomic alterations to create predictive biomarkers for treatment response.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PUBLICATIONS -->
+        <section id="publications" class="page-section">
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <div class="flex justify-between items-end mb-10 border-b-2 border-brand-teal/20 pb-4 scroll-reveal">
+                    <h1 class="font-serif text-4xl text-brand-navy font-bold">Selected Publications</h1>
+                    <a href="#" class="text-sm text-brand-teal hover:underline flex items-center font-bold">View Google Scholar &rarr;</a>
+                </div>
+                
+                <div id="pubmed-results" class="space-y-8">
+                    <div class="animate-pulse flex space-x-4">
+                        <div class="flex-1 space-y-4 py-1">
+                            <div class="h-2 bg-brand-200 rounded-full w-3/4"></div>
+                            <div class="h-2 bg-brand-200 rounded-full w-1/2"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-brand-800/60 italic font-light">Syncing latest publications from PubMed...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PROJECTS -->
+        <section id="projects" class="page-section">
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-6 scroll-reveal">Projects</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-lg font-light scroll-reveal text-justify">
+                    Collaborative and independent projects spanning clinical research, computational methods, and scientific outreach.
+                </p>
+                <div class="text-center py-16 text-brand-800/40 font-light italic">
+                    Projects coming soon.
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. RECOGNITION -->
+        <section id="recognition" class="page-section">
+            <div class="max-w-6xl mx-auto px-6 py-20">
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Recognition & Awards</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Press features, awards, and public recognition for research and service contributions.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Award Image ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2024</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Award Title</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light text-justify">
+                                Description of the award or recognition received.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.1s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Press Feature ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2023</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Press Feature Title</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light text-justify">
+                                Description of the media coverage or press feature.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Article &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.2s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Award Image ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2023</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Research Award</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light text-justify">
+                                Description of recognition received for research contributions.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Award &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/50 border border-brand-200 rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-all backdrop-blur-xs scroll-reveal" style="animation-delay: 0.3s;">
+                        <div class="h-48 bg-gradient-to-br from-brand-200 to-brand-100 flex items-center justify-center border-b border-brand-200">
+                            <span class="text-brand-800/30 font-mono text-sm">[ Press Image ]</span>
+                        </div>
+                        <div class="p-8 flex-grow">
+                            <div class="text-xs font-mono text-brand-teal mb-2 font-bold uppercase">2022</div>
+                            <h3 class="font-serif text-2xl text-brand-navy font-bold mb-3">Media Coverage</h3>
+                            <p class="text-sm text-brand-800 leading-relaxed mb-6 font-light text-justify">
+                                Description of media coverage or public recognition.
+                            </p>
+                            <a href="#" class="inline-block text-sm font-bold text-brand-teal hover:text-brand-accent">View Coverage &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. IMPACT -->
+        <section id="impact" class="page-section">
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4 scroll-reveal">Impact</h1>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
+                <p class="text-brand-800 mb-12 max-w-2xl text-lg font-light scroll-reveal">Academic citizenship, teaching, and supporting the next generation of underrepresented scientists in medicine.</p>
+                
+                <div class="space-y-12">
+                    <div class="scroll-reveal">
+                        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 border-b-2 border-brand-teal/20 pb-2">Mentorship</h2>
+                        <ul class="space-y-6">
+                            <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
+                                <h3 class="font-semibold text-brand-navy">Undergraduate Research Mentor Program</h3>
+                                <p class="text-sm text-brand-800 mt-2 font-light text-justify">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students to co-authorship on peer-reviewed publications.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scroll-reveal" style="animation-delay: 0.1s;">
+                        <h2 class="font-serif text-2xl text-brand-navy font-bold mb-6 border-b-2 border-brand-teal/20 pb-2">Academic Service</h2>
+                        <ul class="space-y-6">
+                            <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
+                                <h3 class="font-semibold text-brand-navy">Resident Curriculum Review Board</h3>
+                                <div class="text-xs text-brand-teal font-bold mb-2">2023 - Present</div>
+                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Elected resident representative responsible for integrating emerging topics in radiogenomics and AI into the standard radiation oncology clinical curriculum.</p>
+                            </li>
+                            <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
+                                <h3 class="font-semibold text-brand-navy">Diversity in Oncology Initiative</h3>
+                                <div class="text-xs text-brand-teal font-bold mb-2">2021 - 2023</div>
+                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Organized institutional outreach programs to local high schools, promoting STEM and clinical oncology careers to students from historically marginalized backgrounds.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT -->
+        <section id="contact" class="page-section">
+            <div class="max-w-4xl mx-auto px-6 py-24 text-center scroll-reveal">
+                <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4">Contact</h1>
+                <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-10 rounded-full"></div>
+                <p class="text-brand-800 mb-10 max-w-lg mx-auto font-light text-lg">For academic inquiries, collaboration proposals, or speaking requests, please reach out via email or connect with me on professional platforms.</p>
+                
+                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-sm hover:shadow-md mb-12">
+                    ugomaon@gmail.com
+                </a>
+
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">LinkedIn</a>
+                    <span class="text-brand-300">|</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">Google Scholar</a>
+                    <span class="text-brand-300">|</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">GitHub</a>
+                    <span class="text-brand-300">|</span>
+                    <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">ORCID</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white/60 border-t border-brand-200 text-brand-800 py-10 mt-auto backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="mb-4 md:mb-0 font-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Ugoma Onubogu. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- NAVIGATION LOGIC & SCROLL ANIMATIONS & THEME TOGGLE -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Load theme preference from localStorage
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark-mode');
+                themeToggle.textContent = '🌙';
+            } else {
+                htmlElement.classList.remove('dark-mode');
+                themeToggle.textContent = '☀️';
+            }
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.textContent = isDarkMode ? '🌙' : '☀️';
+        });
+
+        // Load theme on page load
+        window.addEventListener('DOMContentLoaded', loadTheme);
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Very subtle scroll effect on background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const microscopyBg = document.getElementById('microscopyBg');
+            
+            if (microscopyBg) {
+                microscopyBg.style.transform = `translateY(${scrolled * 0.1}px)`;
+                const opacity = Math.max(0.03, 1 - scrolled / 3000);
+                microscopyBg.style.opacity = opacity;
+            }
+        });
+
+        // Hide logo on top, show when scrolled down
+        const headerLogo = document.querySelector('.header-logo');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 300) {
+                headerLogo.classList.remove('logo-hidden');
+            } else {
+                headerLogo.classList.add('logo-hidden');
+            }
+        });
+
+        function navigate(pageId) {
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active-nav');
+                if (el.getAttribute('data-target') === pageId) {
+                    el.classList.add('active-nav');
+                }
+            });
+
+            // Update URL with history API
+            window.history.pushState({section: pageId}, '', `#${pageId}`);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle back/forward browser buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.section) {
+                const pageId = event.state.section;
+                document.querySelectorAll('.page-section').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+                
+                document.querySelectorAll('.nav-link').forEach(el => {
+                    el.classList.remove('active-nav');
+                    if (el.getAttribute('data-target') === pageId) {
+                        el.classList.add('active-nav');
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Initialize URL on page load if hash exists
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.slice(1);
+            if (hash && document.getElementById(hash)) {
+                navigate(hash);
+            }
+        });
+
+        async function fetchPubMedPublications() {
+            const authorQuery = "Ugoma Onubogu AND oncology"; 
+            
+            try {
+                const searchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(authorQuery)}&retmode=json&retmax=15&sort=pub+date`;
+                const searchRes = await fetch(searchUrl);
+                const searchData = await searchRes.json();
+                const ids = searchData.esearchresult.idlist;
+
+                const container = document.getElementById('pubmed-results');
+
+                if (!ids || ids.length === 0) {
+                    container.innerHTML = '<p class="text-sm text-brand-800 font-light">No recent publications found.</p>';
+                    return;
+                }
+
+                const summaryUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${ids.join(',')}&retmode=json`;
+                const summaryRes = await fetch(summaryUrl);
+                const summaryData = await summaryRes.json();
+
+                container.innerHTML = ''; 
+
+                ids.forEach(id => {
+                    const pub = summaryData.result[id];
+                    const authors = pub.authors.map(a => a.name).join(', ');
+                    const title = pub.title;
+                    const journal = pub.fulljournalname;
+                    const date = pub.pubdate.split(' ')[0];
+                    const doiRaw = pub.articleids.find(aid => aid.idtype === 'doi');
+                    const doi = doiRaw ? doiRaw.value : '';
+
+                    let html = `
+                        <div class="group mb-8 animation-fadeIn scroll-reveal">
+                            <div class="text-sm text-brand-800 leading-relaxed font-light">
+                                <span class="font-bold text-brand-navy">${authors}.</span> (${date}). ${title} 
+                                <em class="text-brand-900">${journal}</em>.
+                            </div>
+                            <div class="mt-3 flex gap-3">
+                                <a href="https://pubmed.ncbi.nlm.nih.gov/${id}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase">PubMed</a>
+                    `;
+                    
+                    if (doi) {
+                        html += `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-teal border-2 border-brand-teal/50 px-3 py-2 rounded-full hover:bg-brand-teal hover:text-white transition-all font-bold uppercase">DOI</a>`;
+                    }
+                    
+                    html += `</div></div>`;
+                    container.insertAdjacentHTML('beforeend', html);
+                });
+            } catch (error) {
+                console.error('Error fetching PubMed data:', error);
+                document.getElementById('pubmed-results').innerHTML = '<p class="text-sm text-brand-800/70 font-light">Unable to load publications from PubMed at this time.</p>';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', fetchPubMedPublications);
+    </script>
+
+</body>
+</html>
