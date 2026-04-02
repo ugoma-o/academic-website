@@ -294,6 +294,17 @@
         .theme-toggle:active {
             transform: scale(0.95);
         }
+
+        /* Logo hide on scroll */
+        .header-logo {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .header-logo.logo-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-white">
@@ -310,9 +321,9 @@
     <!-- NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-           <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase header-logo" onclick="navigate('about')">
-    Ugoma Onubogu, MD PhD
-</div>
+            <div class="font-display text-lg font-black text-brand-teal cursor-pointer tracking-caps uppercase header-logo" onclick="navigate('about')">
+                Ugoma Onubogu, MD PhD
+            </div>
             <nav class="hidden md:flex space-x-8 text-sm text-brand-800 tracking-wide">
                 <button onclick="navigate('about')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="about">About</button>
                 <button onclick="navigate('research')" class="nav-link pb-1 transition-colors hover:text-brand-teal font-semibold uppercase text-xs tracking-caps" data-target="research">Research</button>
@@ -794,6 +805,19 @@
                 microscopyBg.style.transform = `translateY(${scrolled * 0.1}px)`;
                 const opacity = Math.max(0.03, 1 - scrolled / 3000);
                 microscopyBg.style.opacity = opacity;
+            }
+        });
+
+        // Hide logo on top, show when scrolled down
+        const headerLogo = document.querySelector('.header-logo');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 300) {
+                headerLogo.classList.remove('logo-hidden');
+            } else {
+                headerLogo.classList.add('logo-hidden');
             }
         });
 
