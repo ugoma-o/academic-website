@@ -109,7 +109,7 @@
 
         .carousel {
             display: flex;
-            /* Mobile: 14 items × 280px = 3920px, Desktop: 14 items × 400px = 5600px */
+            /* Mobile: 28 items × 280px = 7840px, Desktop: 28 items × 400px = 11200px */
             animation: scrollMobile 120s linear infinite;
         }
 
@@ -123,13 +123,13 @@
         /* Mobile carousel animation */
         @keyframes scrollMobile {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-3920px); }
+            100% { transform: translateX(-7840px); }
         }
 
         /* Desktop carousel animation */
         @keyframes scrollDesktop {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-5824px); }
+            100% { transform: translateX(-11200px); }
         }
 
         /* Mobile: 280px width, 200px height */
