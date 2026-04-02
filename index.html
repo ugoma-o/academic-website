@@ -120,22 +120,21 @@
              }
          }
 
-        /* Mobile carousel animation */
-        @keyframes scrollMobile {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-11200px); }
-        }
+        /* Mobile carousel animation - 28 items × 280px = 7840px */
+@keyframes scrollMobile {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-7840px); }
+}
 
-        /* Desktop carousel animation */
-        @keyframes scrollDesktop {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-11200px); }
-        }
+/* Desktop carousel animation - 28 items × 400px = 11200px */
+@keyframes scrollDesktop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-11200px); }
+}
 
-        /* Mobile: 280px width, 200px height */
-        /* Desktop: 400px width, 300px height */
-       .carousel-item {
-    min-width: 200px;
+/* Mobile: 280px width, 200px height */
+.carousel-item {
+    min-width: 280px;
     height: 200px;
     margin-right: 1rem;
     border-radius: 1.5rem;
@@ -143,6 +142,7 @@
     flex-shrink: 0;
 }
 
+/* Desktop: 400px width, 300px height */
 @media (min-width: 768px) {
     .carousel-item {
         min-width: 400px;
