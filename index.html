@@ -108,13 +108,25 @@
         }
 
               
-         /* Desktop animation - larger images */
-         @media (min-width: 768px) {
-             .carousel {
-                 animation: scrollDesktop 250s linear infinite;
-             }
-         }
+         .carousel {
+    display: flex;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
+/* Mobile: 8288px ÷ 60s = reasonable speed */
+@media (max-width: 767px) {
+    .carousel {
+        animation: scrollMobile 60s linear infinite;
+    }
+}
+
+/* Desktop: 11648px ÷ 80s = similar speed */
+@media (min-width: 768px) {
+    .carousel {
+        animation: scrollDesktop 80s linear infinite;
+    }
+}
        /* Mobile carousel animation - 28 items × (280px + 16px margin) = 8288px */
 @keyframes scrollMobile {
     0% { transform: translateX(0); }
