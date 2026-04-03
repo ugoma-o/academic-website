@@ -107,36 +107,29 @@
             border-radius: 1.5rem;
         }
 
-              
-.carousel {
-    display: flex;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
+                .carousel {
+             display: flex;
+             /* Mobile: 28 items × 280px = 7840px, Desktop: 28 items × 400px = 11200px */
+             animation: scrollMobile 180s linear infinite;
+         }
 
-/* Mobile: slower speed */
-@media (max-width: 767px) {
-    .carousel {
-        animation: scrollMobile 180s linear infinite;
-    }
-}
+         /* Desktop animation - larger images */
+         @media (min-width: 768px) {
+             .carousel {
+                 animation: scrollDesktop 180s linear infinite;
+             }
+         }
 
-/* Desktop: slower speed */
-@media (min-width: 768px) {
-    .carousel {
-        animation: scrollDesktop 240s linear infinite;
-    }
-}
-/* Mobile carousel animation - 42 items × (280px + 16px margin) = 12432px */
+       /* Mobile carousel animation - 28 items × (280px + 16px margin) = 8288px */
 @keyframes scrollMobile {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-12432px); }
+    100% { transform: translateX(-8288px); }
 }
 
-/* Desktop carousel animation - 42 items × (416px + 16px margin) = 18144px */
+/* Desktop carousel animation - 28 items × (400px + 16px margin) = 11648px */
 @keyframes scrollDesktop {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-18144px); }
+    100% { transform: translateX(-11648px); }
 }
 
 /* Mobile: 280px × 280px (SQUARE) */
@@ -149,11 +142,11 @@
     flex-shrink: 0;
 }
 
-/* Desktop: 200px × 200px (SQUARE) */
+/* Desktop: 400px × 400px (SQUARE) */
 @media (min-width: 768px) {
     .carousel-item {
-        min-width: 200px;
-        height: 200px;
+        min-width: 400px;
+        height: 400px;
     }
 }
         .carousel-item img {
