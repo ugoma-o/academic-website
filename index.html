@@ -108,23 +108,23 @@
         }
 
               
-       .carousel {
+.carousel {
     display: flex;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-/* Mobile: much slower speed */
+/* Mobile: slower speed */
 @media (max-width: 767px) {
     .carousel {
-        animation: scrollMobile 450s linear infinite;
+        animation: scrollMobile 180s linear infinite;
     }
 }
 
-/* Desktop: much slower speed */
+/* Desktop: slower speed */
 @media (min-width: 768px) {
     .carousel {
-        animation: scrollDesktop 600s linear infinite;
+        animation: scrollDesktop 240s linear infinite;
     }
 }
 /* Mobile carousel animation - 42 items × (280px + 16px margin) = 12432px */
