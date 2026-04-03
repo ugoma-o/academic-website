@@ -319,7 +319,7 @@
             transform: scale(0.95);
         }
 
-        /* Logo hide on scroll */
+        /* Logo hide on scroll - ONLY on About page */
         .header-logo {
             opacity: 1;
             transition: opacity 0.3s ease;
@@ -1023,16 +1023,24 @@
             }
         });
 
-        // Hide logo on top, show when scrolled down
+        // Hide logo on scroll - ONLY on About page
         const headerLogo = document.querySelector('.header-logo');
 
         window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const currentPage = document.querySelector('.page-section.active');
             
-            if (scrollTop > 300) {
-                headerLogo.classList.remove('logo-hidden');
+            // Only hide logo on About page
+            if (currentPage && currentPage.id === 'about') {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 300) {
+                    headerLogo.classList.remove('logo-hidden');
+                } else {
+                    headerLogo.classList.add('logo-hidden');
+                }
             } else {
-                headerLogo.classList.add('logo-hidden');
+                // Keep logo visible on all other pages
+                headerLogo.classList.remove('logo-hidden');
             }
         });
 
@@ -1052,6 +1060,13 @@
             // Update URL with history API
             window.history.pushState({section: pageId}, '', `#${pageId}`);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Ensure logo is visible when navigating to non-About pages
+            if (pageId !== 'about') {
+                headerLogo.classList.remove('logo-hidden');
+            } else {
+                headerLogo.classList.add('logo-hidden');
+            }
         }
 
         // Handle back/forward browser buttons
@@ -1070,6 +1085,13 @@
                     }
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Ensure logo is visible when navigating to non-About pages
+                if (pageId !== 'about') {
+                    headerLogo.classList.remove('logo-hidden');
+                } else {
+                    headerLogo.classList.add('logo-hidden');
+                }
             }
         });
 
