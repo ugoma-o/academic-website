@@ -109,7 +109,7 @@
 
         .carousel {
             display: flex;
-            /* Mobile: 28 items × 200px = 5600px, Desktop: 28 items × 300px = 8400px */
+            /* Mobile: 28 items × 140px = 3920px, Desktop: 28 items × 200px = 5600px */
             animation: scrollMobile 180s linear infinite;
         }
 
@@ -120,33 +120,33 @@
             }
         }
 
-        /* Mobile carousel animation - 28 items × (200px + 16px margin) = 6048px */
+        /* Mobile carousel animation - 28 items × (140px + 16px margin) = 4368px */
         @keyframes scrollMobile {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-4368px); }
+        }
+
+        /* Desktop carousel animation - 28 items × (200px + 16px margin) = 6048px */
+        @keyframes scrollDesktop {
             0% { transform: translateX(0); }
             100% { transform: translateX(-6048px); }
         }
 
-        /* Desktop carousel animation - 28 items × (300px + 16px margin) = 8848px */
-        @keyframes scrollDesktop {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-8848px); }
-        }
-
-        /* Mobile: 200px × 200px (SQUARE) */
+        /* Mobile: 140px × 140px (SQUARE) */
         .carousel-item {
-            min-width: 200px;
-            height: 200px;
+            min-width: 140px;
+            height: 140px;
             margin-right: 1rem;
             border-radius: 1.5rem;
             overflow: hidden;
             flex-shrink: 0;
         }
 
-        /* Desktop: 300px × 300px (SQUARE) */
+        /* Desktop: 200px × 200px (SQUARE) */
         @media (min-width: 768px) {
             .carousel-item {
-                min-width: 300px;
-                height: 300px;
+                min-width: 200px;
+                height: 200px;
             }
         }
         
