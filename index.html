@@ -219,10 +219,10 @@
             border: 1px solid #e8dcc8;
         }
 
-        /* Project card with image */
+        /* Project card with image - natural aspect ratio */
         .project-card {
             display: grid;
-            grid-template-columns: 150px 1fr;
+            grid-template-columns: 180px 1fr;
             gap: 1.5rem;
             align-items: start;
         }
@@ -234,9 +234,8 @@
         }
 
         .project-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 1.5rem;
+            width: 180px;
+            border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(91, 155, 148, 0.15);
             transition: transform 0.3s ease;
@@ -246,7 +245,6 @@
         @media (max-width: 640px) {
             .project-image {
                 width: 100%;
-                height: 200px;
                 margin-bottom: 1rem;
             }
         }
@@ -257,8 +255,9 @@
 
         .project-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
         }
 
         .project-content {
@@ -738,7 +737,7 @@
                         <!-- Project 1: IMP2 with Image -->
                         <div class="project-card border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
                             <div class="project-image">
-                                <img src="Images/spatial.jpg" alt="Spatial Biology Research">
+                                <img src="research/spatial.jpg" alt="Spatial Biology Research">
                             </div>
                             <div class="project-content">
                                 <h4 class="font-semibold text-brand-navy mb-2">Elucidation of Key Biological Mechanisms of Oncofetal Protein IMP2 in Pediatric High-Grade Glioma</h4>
@@ -755,7 +754,7 @@
                         <!-- Project 2: Multiregional with Image -->
                         <div class="project-card border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
                             <div class="project-image">
-                                <img src="Images/segment.jpg" alt="Glioblastoma Segmentation">
+                                <img src="research/segment.jpg" alt="Glioblastoma Segmentation">
                             </div>
                             <div class="project-content">
                                 <h4 class="font-semibold text-brand-navy mb-2">Multiregional Biopsies and Neurosphere Cultures Reveal Spatial Divergence in Glioblastoma Evolution</h4>
@@ -773,7 +772,7 @@
                         <div class="border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Machine Learning Approach for Analyzing Texture and Morphometry Markers of Glioblastoma TERT Promoter Mutations</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Herbert Wertheim UF Scripps Institute | Graduate Research</p>
-                            <p class="text-sm text-brand-800 font-light mb-2">Development of machine learning pipeline for automated TERT promoter mutation prediction. In silico ecotyping of glioblastoma identifies imaging biomarkers of genetic alterations.</p>
+                            <p class="text-sm text-brand-800 font-light mb-3">Development of machine learning pipeline for automated TERT promoter mutation prediction. In silico ecotyping of glioblastoma identifies imaging biomarkers of genetic alterations.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="badge">Machine Learning</span>
                                 <span class="badge">Digital Pathology</span>
