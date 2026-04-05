@@ -447,6 +447,42 @@
             background-color: rgba(58, 74, 94, 0.6);
             color: #6db3a8;
         }
+
+        /* Key Contributions List Styles */
+        .key-contributions {
+            margin-top: 1rem;
+        }
+
+        .key-contributions h5 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #5b9b94;
+            margin-bottom: 0.5rem;
+        }
+
+        .key-contributions ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .key-contributions li {
+            font-size: 0.875rem;
+            color: #5a6b7e;
+            padding-left: 1.25rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .key-contributions li:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #5b9b94;
+        }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-teal selection:text-white">
@@ -518,7 +554,7 @@
                         <h2 class="text-brand-teal font-semibold tracking-caps uppercase text-sm mb-4">Resident Physician | PGY-I</h2>
                         <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
                         <p class="text-lg text-brand-800 leading-relaxed mb-6 font-light max-w-lg">
-                            Integrating translational research, clinical workflow optimiztion, and multi-scale approaches to improve outcomes and innovate in neuro-oncology.
+                            Integrating translational research, clinical workflow optimization, and multi-scale approaches to improve outcomes and innovate in neuro-oncology.
                         </p>
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-4 mt-8">
@@ -639,7 +675,7 @@
                             Hi! I'm Ugoma. I am a radiation oncology resident physician (currently completing my intern year) with a focused clinical and research interest in primary central nervous system malignancies.
                         </p>
                         <p class="text-sm text-brand-800 leading-relaxed font-light mb-4 text-justify">
-                            During my PhD training, I developed expertise in molecular and cell biology, spatial genomics, transcriptomics, computational analysis, and advanced microscopy applied to glioblastoma.
+                            During my PhD training, I developed expertise in molecular and cell biology, spatial genomics, transcriptomics, computational analysis, and advanced microscopy applied to human cancer biology.
                         </p>
                         <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">
                             My overarching goal is to translate biological insights into clinically actionable strategies by bridging mechanistic discovery with therapeutic innovation, ultimately improving patient outcomes.
@@ -695,15 +731,15 @@
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Intratumoral Modulation Therapies</div>
-                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Leveraging bioelectric and tumor–neural signaling in high-grade gliomas to interrogate and modulate the tumor microenvironment.</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Leveraging bioelectric and tumor–neural signaling in high-grade gliomas to interrogate novel interventions.</div>
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Radiogenomics</div>
-                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Correlating non-invasive quantitative imaging features with underlying genomic and pathophysiologic mechanisms.</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Correlating non-invasive quantitative imaging features with underlying genomic and pathologic landscapes.</div>
                             </div>
                             <div>
                                 <div class="text-sm font-semibold text-brand-navy mb-2">Quality Improvement</div>
-                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Developing automation and machine learning applications to optimize clinical workflows and treatment planning.</div>
+                                <div class="text-sm text-brand-800 font-light leading-relaxed text-justify">Developing automation and machine learning applications to optimize clinical workflows and outcomes.</div>
                             </div>
                         </div>
                     </div>
@@ -717,14 +753,12 @@
                 <h1 class="font-serif text-4xl text-brand-navy font-bold mb-6 scroll-reveal">Research Overview</h1>
                 <div class="w-16 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mb-8 rounded-full"></div>
                 <p class="text-brand-800 max-w-3xl leading-relaxed mb-12 text-lg border-l-4 border-brand-teal pl-6 py-2 font-light scroll-reveal text-justify">
-                    My research integrates spatial biology, computational analysis, and clinical translation to understand how tumors evade therapeutic interventions. Combining next-generation sequencing, imaging, and computational modeling, we interrogate the genetic and cellular heterogeneity that underlies treatment resistance in glioblastoma and pediatric high-grade gliomas.
-                    </p>
-                    <p class="text-xs text-brand-teal font-bold uppercase tracking-wider">Key Focus: Spatial Omics • Multi-plex Imaging • Digital Pathology</p>
-                </div>
+                    My research integrates spatial biology, computational analysis, and clinical translation to understand how tumors evade therapeutic interventions. Combining next-generation sequencing, multiplex imaging, and machine learning approaches to uncover mechanisms driving therapeutic resistance and identify novel therapeutic opportunities.
+                </p>
+                <p class="text-xs text-brand-teal font-bold uppercase tracking-wider">Key Focus: Spatial Omics • Multi-plex Imaging • Digital Pathology</p>
 
-
-                        <!-- Current Research Projects -->
-                <div class="bg-white/50 border border-brand-200 rounded-2xl p-8 scroll-reveal mb-12">
+                <!-- Current Research Projects -->
+                <div class="bg-white/50 border border-brand-200 rounded-2xl p-8 scroll-reveal mb-12 mt-12">
                     <h3 class="font-serif text-2xl text-brand-navy font-bold mb-6">Current Research Projects</h3>
                     
                     <div class="space-y-6">
@@ -736,8 +770,15 @@
                             <div class="project-content">
                                 <h4 class="font-semibold text-brand-navy mb-2">Elucidation of Key Biological Mechanisms of Oncofetal Protein IMP2 in Pediatric High-Grade Glioma</h4>
                                 <p class="text-xs text-brand-teal font-bold mb-2">Herbert Wertheim UF Scripps Institute | Post-Doctoral Research</p>
-                                <p class="text-sm text-brand-800 font-light mb-3">Transcriptomic analysis and RNA sequencing pipeline development investigating IMP2 expression effects in pediatric high-grade gliomas. Characterizing downstream signaling cascades and therapeutic opportunities for targeting IMP2-dependent pathways.</p>
-                                <div class="flex flex-wrap gap-2">
+                                <div class="key-contributions">
+                                    <h5>Key Contributions</h5>
+                                    <ul>
+                                        <li>Transcriptomic analysis and RNA sequencing pipeline development investigating IMP2 expression effects</li>
+                                        <li>Integration of spatial data with genomic datasets for mechanistic insights</li>
+                                        <li>Collaboration with multi-institutional consortium on pediatric brain tumor research</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mt-3">
                                     <span class="badge">Transcriptomics</span>
                                     <span class="badge">RNA-Seq</span>
                                     <span class="badge">Bioinformatics</span>
@@ -753,8 +794,15 @@
                             <div class="project-content">
                                 <h4 class="font-semibold text-brand-navy mb-2">Multiregional Biopsies and Neurosphere Cultures Reveal Spatial Divergence in Glioblastoma Evolution</h4>
                                 <p class="text-xs text-brand-teal font-bold mb-2">Herbert Wertheim UF Scripps Institute | Graduate Research</p>
-                                <p class="text-sm text-brand-800 font-light mb-3">Profiling of biopsies from MRI-defined tumor regions across surface, core, and deep margins. 5-ALA metabolite fluorescence guides biopsy collection. Spatial transcriptomics and whole-exome sequencing reveal distinct clonal architectures and evolutionary trajectories within individual tumors.</p>
-                                <div class="flex flex-wrap gap-2">
+                                <div class="key-contributions">
+                                    <h5>Key Contributions</h5>
+                                    <ul>
+                                        <li>Profiling of biopsies from MRI-defined tumor regions across surface, core, and deep margins</li>
+                                        <li>Implementation of 5-ALA metabolite fluorescence and advanced microscopy techniques</li>
+                                        <li>Quantitative spatial analysis revealing clonal evolution patterns and therapeutic implications</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mt-3">
                                     <span class="badge">Spatial Biology</span>
                                     <span class="badge">Multiplex Imaging</span>
                                     <span class="badge">Confocal Microscopy</span>
@@ -766,8 +814,15 @@
                         <div class="border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Machine Learning Approach for Analyzing Texture and Morphometry Markers of Glioblastoma TERT Promoter Mutations</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Herbert Wertheim UF Scripps Institute | Graduate Research</p>
-                            <p class="text-sm text-brand-800 font-light mb-3">Development of machine learning pipeline for automated TERT promoter mutation prediction. In silico ecotyping of glioblastoma identifies imaging biomarkers of genetic alterations.</p>
-                            <div class="flex flex-wrap gap-2">
+                            <div class="key-contributions">
+                                <h5>Key Contributions</h5>
+                                <ul>
+                                    <li>Development of machine learning pipeline for automated TERT promoter mutation prediction</li>
+                                    <li>In silico ecotyping of glioblastoma subtypes based on quantitative imaging features</li>
+                                    <li>Validation and clinical translation of radiogenomic biomarkers for treatment stratification</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3">
                                 <span class="badge">Machine Learning</span>
                                 <span class="badge">Digital Pathology</span>
                                 <span class="badge">Image Analysis</span>
@@ -785,32 +840,60 @@
                         <div class="border-l-4 border-brand-accent pl-6 py-4 bg-gradient-to-r from-brand-accent/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Collateral Lethality between HDAC1 and HDAC2 Exploiting Cancer-Specific NuRD Complex Vulnerabilities</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Scripps Research, La Jolla CA | Graduate Research</p>
-                            <p class="text-sm text-brand-800 font-light mb-2">Investigation of genetic interactions and synthetic lethality. Demonstrated HDAC2 inhibition suppresses growth of HDAC1-deficient glioblastoma cells.</p>
-                            <p class="text-xs text-brand-800/60 italic">Published in Nature Structural & Molecular Biology (2023)</p>
+                            <div class="key-contributions">
+                                <h5>Key Contributions</h5>
+                                <ul>
+                                    <li>Investigation of genetic interactions and synthetic lethality in cancer models</li>
+                                    <li>Demonstrated HDAC2 inhibition suppresses growth of HDAC1-deficient cancers</li>
+                                    <li>Identified novel therapeutic vulnerabilities in epigenetic regulatory complexes</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs text-brand-800/60 italic mt-2">Published in Nature Structural & Molecular Biology (2023)</p>
                         </div>
 
                         <!-- Past Project 2 -->
                         <div class="border-l-4 border-brand-accent pl-6 py-4 bg-gradient-to-r from-brand-accent/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Single-Cell Heterogeneity of EGFR and CDK4 Co-Amplification and Immune Infiltration in Glioblastoma</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Scripps Research, La Jolla CA | Graduate Research</p>
-                            <p class="text-sm text-brand-800 font-light mb-2">Spatial profiling of oncogenic amplification and protein expression distribution. Identified patterns correlating with glioblastoma subtype classification and immune composition.</p>
-                            <p class="text-xs text-brand-800/60 italic">Published in Cell Reports (2023)</p>
+                            <div class="key-contributions">
+                                <h5>Key Contributions</h5>
+                                <ul>
+                                    <li>Spatial profiling of oncogenic amplification and protein expression distribution</li>
+                                    <li>Identified patterns correlating oncogenic co-amplification with immune cell infiltration</li>
+                                    <li>Characterized clonal composition and predicted immunotherapy response signatures</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs text-brand-800/60 italic mt-2">Published in Cell Reports (2023)</p>
                         </div>
 
                         <!-- Past Project 3 -->
                         <div class="border-l-4 border-brand-accent pl-6 py-4 bg-gradient-to-r from-brand-accent/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Spatial Analysis of Genetic Heterogeneity and Tumor Microenvironment Interactions in Glioblastoma</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Scripps Research | Doctoral Thesis (Primary Investigator)</p>
-                            <p class="text-sm text-brand-800 font-light mb-2">Investigated intratumoral heterogeneity and native spatial interactions between tumor and non-tumor cells. Developed platform integrating multi-modality datasets.</p>
-                            <p class="text-xs text-brand-800/60 italic">Published in Journal of Clinical Investigation Insight (2024)</p>
+                            <div class="key-contributions">
+                                <h5>Key Contributions</h5>
+                                <ul>
+                                    <li>Investigated intratumoral heterogeneity and native spatial interactions between tumor and non-tumor cells</li>
+                                    <li>Developed novel computational frameworks for analyzing complex spatial relationships</li>
+                                    <li>Established mechanistic links between microenvironment composition and therapeutic resistance</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs text-brand-800/60 italic mt-2">Published in Journal of Clinical Investigation Insight (2024)</p>
                         </div>
 
                         <!-- Past Project 4 -->
                         <div class="border-l-4 border-brand-accent pl-6 py-4 bg-gradient-to-r from-brand-accent/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Methylation of TWIST1 Promoters Predicts Mesenchymal Stem Cell Function</h4>
                             <p class="text-xs text-brand-teal font-bold mb-2">Scripps Research | Graduate Research Assistant</p>
-                            <p class="text-sm text-brand-800 font-light mb-2">Assigned MSC effector function phenotypes using TWIST1 methylation status. Developed potency assay and functionality scale for cell therapy applications.</p>
-                            <p class="text-xs text-brand-800/60 italic">Presented at FAU 10th Annual Medical Student and Resident Research Day (2019)</p>
+                            <div class="key-contributions">
+                                <h5>Key Contributions</h5>
+                                <ul>
+                                    <li>Assigned MSC effector function phenotypes using TWIST1 methylation status</li>
+                                    <li>Developed potency assay and functionality screening pipeline</li>
+                                    <li>Demonstrated epigenetic biomarkers predict therapeutic cell function</li>
+                                </ul>
+                            </div>
+                            <p class="text-xs text-brand-800/60 italic mt-2">Presented at FAU 10th Annual Medical Student and Resident Research Day (2019)</p>
                         </div>
                     </div>
                 </div>
@@ -819,10 +902,10 @@
                 <div class="bg-white/50 border-2 border-brand-navy rounded-2xl p-8 scroll-reveal mb-12">
                     <h3 class="font-serif text-2xl text-brand-navy font-bold mb-4">Research Collaborations</h3>
                     <p class="text-sm text-brand-800 leading-relaxed font-light text-justify mb-4">
-                        During my doctoral training, I became a member of the Florida Center for Brain Tumor Research (FCBTR) through my association with the University of Florida Preston A. Wells Jr. Center for Brain Tumor Research. This collaborative network provided invaluable exposure to cutting-edge research methodologies and clinical perspectives.
+                        During my doctoral training, I became a member of the Florida Center for Brain Tumor Research (FCBTR) through my association with the University of Florida Preston A. Wells Center for Brain Tumor Therapy, fostering collaborative research and clinical integration.
                     </p>
                     <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">
-                        I conducted my thesis work in the laboratory of Michalina Janiszewska, PhD at Scripps Research. Throughout my training, I was fortunate to have worked closely with investigators studying glioblastoma heterogeneity, cancer cell biology, and tumor evolution. These collaborations have shaped my research philosophy and continue to inform my translational approach.
+                        I conducted my thesis work in the laboratory of Michalina Janiszewska, PhD at Scripps Research. Throughout my training, I was fortunate to have worked closely with investigators from leading institutions including MD Anderson Cancer Center, contributing to multi-institutional research initiatives and collaborative publications.
                     </p>
                 </div>
             </div>
@@ -942,7 +1025,7 @@
                         <ul class="space-y-6">
                             <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
                                 <h3 class="font-semibold text-brand-navy">Undergraduate Research Mentor Program</h3>
-                                <p class="text-sm text-brand-800 mt-2 font-light text-justify">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students toward publication and presented research at national conferences.</p>
+                                <p class="text-sm text-brand-800 mt-2 font-light text-justify">Directly supervised and mentored 4 undergraduate students in computational biology. Guided two students through first-author manuscript preparation and conference presentations.</p>
                             </li>
                         </ul>
                     </div>
@@ -952,12 +1035,12 @@
                             <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
                                 <h3 class="font-semibold text-brand-navy">Resident Curriculum Review Board</h3>
                                 <div class="text-xs text-brand-teal font-bold mb-2">2023 - Present</div>
-                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Elected resident representative responsible for integrating emerging topics in radiogenomics and AI into residency curriculum.</p>
+                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Elected resident representative responsible for integrating emerging topics in radiogenomics and AI applications into the residency curriculum.</p>
                             </li>
                             <li class="bg-white/50 p-6 border border-brand-200 rounded-2xl shadow-sm backdrop-blur-xs">
                                 <h3 class="font-semibold text-brand-navy">Diversity in Oncology Initiative</h3>
                                 <div class="text-xs text-brand-teal font-bold mb-2">2021 - 2023</div>
-                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Organized institutional outreach programs to local high schools, promoting STEM and clinical oncology careers to underrepresented minorities.</p>
+                                <p class="text-sm text-brand-800 mt-1 font-light text-justify">Organized institutional outreach programs to local high schools, promoting STEM and clinical oncology careers among underrepresented minority students.</p>
                             </li>
                         </ul>
                     </div>
@@ -970,13 +1053,13 @@
             <div class="max-w-4xl mx-auto px-6 py-24 text-center scroll-reveal">
                 <h1 class="font-serif text-4xl text-brand-navy font-bold mb-4">Contact</h1>
                 <div class="w-20 h-1 bg-gradient-to-r from-brand-teal to-brand-accent mx-auto mb-10 rounded-full"></div>
-                <p class="text-brand-800 mb-10 max-w-lg mx-auto font-light text-lg">For academic inquiries, collaboration proposals, or speaking requests, please reach out via email or connect with me on professional networks.</p>
+                <p class="text-brand-800 mb-10 max-w-lg mx-auto font-light text-lg">For academic inquiries, collaboration proposals, or speaking requests, please reach out via email or connect with me on social platforms.</p>
                 
-                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-sm hover:shadow-md mb-8">
+                <a href="mailto:ugomaon@gmail.com" class="inline-block bg-brand-teal hover:bg-brand-accent text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-sm hover:shadow-lg mb-6">
                     ugomaon@gmail.com
                 </a>
 
-                <div class="flex justify-center space-x-6">
+                <div class="flex justify-center space-x-6 mt-6">
                     <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">LinkedIn</a>
                     <span class="text-brand-300">|</span>
                     <a href="#" class="text-brand-800 hover:text-brand-teal font-bold transition-colors">Google Scholar</a>
@@ -999,60 +1082,36 @@
         </div>
     </footer>
 
-    <!-- NAVIGATION LOGIC & SCROLL ANIMATIONS & THEME TOGGLE -->
     <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
+        // PAGE NAVIGATION
+        function navigate(page) {
+            const sections = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            sections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active-nav'));
+            
+            const targetSection = document.getElementById(page);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            const activeLink = document.querySelector(`[data-target="${page}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active-nav');
+            }
+            
+            window.scrollTo(0, 0);
+            observeElements();
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            }
-        });
-
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlElement = document.documentElement;
-
-        // Load theme preference from localStorage
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                htmlElement.classList.add('dark-mode');
-                themeToggle.textContent = '🌙';
-            } else {
-                htmlElement.classList.remove('dark-mode');
-                themeToggle.textContent = '☀️';
-            }
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark-mode');
-            const isDarkMode = htmlElement.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            themeToggle.textContent = isDarkMode ? '🌙' : '☀️';
-        });
-
-        // Load theme on page load
-        window.addEventListener('DOMContentLoaded', loadTheme);
-
-        // Scroll reveal animation
+        // SCROLL REVEAL ANIMATIONS
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
@@ -1060,45 +1119,60 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.scroll-reveal').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Navigation system
-        function navigate(targetPage) {
-            const sections = document.querySelectorAll('.page-section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            sections.forEach(section => {
-                section.classList.remove('active');
+        function observeElements() {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
             });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-            });
-
-            const targetSection = document.getElementById(targetPage);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            const activeLink = document.querySelector(`[data-target="${targetPage}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active-nav');
-            }
-
-            window.scrollTo(0, 0);
         }
 
-        // Initialize first page
-        navigate('about');
+        observeElements();
 
-        // Close mobile menu when a nav link is clicked
-        document.querySelectorAll('.mobile-menu a, .mobile-menu button').forEach(link => {
-            link.addEventListener('click', () => {
-                toggleMobileMenu();
-            });
+        // DARK MODE TOGGLE
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            htmlElement.classList.add('dark-mode');
+            themeToggle.textContent = '🌙';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            const theme = htmlElement.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
         });
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        }
+
+        // LOGO HIDE ON SCROLL (only on About page)
+        window.addEventListener('scroll', () => {
+            const aboutSection = document.getElementById('about');
+            const headerLogo = document.querySelector('.header-logo');
+            const isAboutActive = aboutSection?.classList.contains('active');
+            
+            if (isAboutActive) {
+                if (window.scrollY > 200) {
+                    headerLogo?.classList.add('logo-hidden');
+                } else {
+                    headerLogo?.classList.remove('logo-hidden');
+                }
+            } else {
+                headerLogo?.classList.remove('logo-hidden');
+            }
+        });
+
+        // Set About as the initial active section
+        navigate('about');
     </script>
+
 </body>
 </html>
