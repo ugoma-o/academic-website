@@ -217,14 +217,33 @@
         }
 
     .project-card {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     align-items: start;
 }
 
 @media (max-width: 640px) {
     .project-card {
+        flex-direction: column;
+    }
+}
+
+.project-card h4 {
+    width: 100%;
+    order: -1;
+}
+
+.project-inner {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+    width: 100%;
+    align-items: start;
+}
+
+@media (max-width: 640px) {
+    .project-inner {
         grid-template-columns: 1fr;
     }
 }
@@ -257,13 +276,6 @@
 
 .project-content {
     flex: 1;
-}
-}
-
-.project-content {
-    flex: 1;
-    grid-column: 2;
-}
 }
 
 .project-content {
