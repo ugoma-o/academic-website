@@ -217,54 +217,60 @@
         }
 
         .project-card {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
 
-        @media (max-width: 640px) {
-            .project-card {
-                grid-template-columns: 1fr;
-            }
-        }
+@media (max-width: 640px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+}
 
-        .project-card h4 {
-            font-size: 1.375rem;
-            grid-column: 1;
-            order: -1;
-        }
+.project-card h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    grid-column: 2;
+    grid-row: 1;
+}
 
-        .project-image {
-            width: 240px;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(91, 155, 148, 0.15);
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
+.project-image {
+    width: 280px;
+    height: 220px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(91, 155, 148, 0.15);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    grid-column: 1;
+    grid-row: 1 / 4;
+}
 
-        @media (max-width: 640px) {
-            .project-image {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-        }
+@media (max-width: 640px) {
+    .project-image {
+        width: 100%;
+        height: auto;
+        grid-column: 1;
+        grid-row: auto;
+    }
+}
 
-        .project-image:hover {
-            transform: translateY(-4px);
-        }
+.project-image:hover {
+    transform: translateY(-4px);
+}
 
-        .project-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 1rem;
-        }
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .project-content {
-            flex: 1;
-        }
+.project-content {
+    flex: 1;
+    grid-column: 2;
+}
 
         :root {
             --bg-primary: #faf9f7;
