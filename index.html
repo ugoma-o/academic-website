@@ -220,15 +220,29 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 640px) {
+            .project-card {
+                flex-direction: column;
+            }
         }
 
         .project-image {
-            width: 300px;
-            height: 240px;
+            width: 100%;
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(91, 155, 148, 0.15);
             transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            .project-image {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
         }
 
         .project-image:hover {
@@ -237,8 +251,9 @@
 
         .project-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            border-radius: 1rem;
         }
 
         .project-content {
@@ -665,7 +680,7 @@
                     
                     <div class="space-y-6">
                         <div class="project-card border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
-                            <h4 class="text-xl font-bold text-brand-navy mb-4">Elucidation of Key Biological Mechanisms of Oncofetal Protein IMP2 in Pediatric High-Grade Glioma</h4>
+                            <h4 class="text-xl font-bold text-brand-navy mb-2">Elucidation of Key Biological Mechanisms of Oncofetal Protein IMP2 in Pediatric High-Grade Glioma</h4>
                             <div class="project-image">
                                 <img src="Research_section/spatial.jpg" alt="Spatial Biology Research">
                             </div>
@@ -676,7 +691,7 @@
                                     <ul>
                                         <li>Transcriptomic analysis and RNA sequencing pipeline development investigating IMP2 expression thresholds</li>
                                         <li>Analysis of spatial data with transcriptomic datasets for mechanistic insights</li>
-                                        <li>Development of an in silico comparative image analysis workflow to identify high and low IMP2 expressing tumor tissue</li>
+                                        <li>Development of an in silico comparative image analysis workflow to identify high and low IMP2 expressing tumor tissue derived from tissue microarray</li>
                                     </ul>
                                 </div>
                                 <div class="flex flex-wrap gap-2 mt-3">
@@ -688,7 +703,7 @@
                         </div>
 
                         <div class="project-card border-l-4 border-brand-teal pl-6 py-4 bg-gradient-to-r from-brand-teal/5 to-transparent rounded">
-                            <h4 class="text-xl font-bold text-brand-navy mb-4">Multiregional Biopsies and Neurosphere Cultures Reveal Spatial Divergence in Glioblastoma Evolution</h4>
+                            <h4 class="text-xl font-bold text-brand-navy mb-2">Multiregional Biopsies and Neurosphere Cultures Reveal Spatial Divergence in Glioblastoma Evolution</h4>
                             <div class="project-image">
                                 <img src="Research_section/segmentation.jpg" alt="Glioblastoma Segmentation">
                             </div>
@@ -698,8 +713,8 @@
                                     <h5>Key Contributions</h5>
                                     <ul>
                                         <li>Profiling of biopsies from MRI-defined tumor regions across surface, core, and deep margins</li>
-                                        <li>Utilization of 5-ALA metabolite fluorescence to differentiate cancer cells from tumor microenvironment</li>
-                                        <li>Quantitative image analysis measuring contributions of genomic variation in characterization of tumor cells</li>
+                                        <li>Utilization of 5-ALA metabolite fluorescence to differentiate cancer cells from tumor microenvironment via microscopy</li>
+                                        <li>Quantitative image analysis measuring contributions of genomic variation in characterization of regionally distinct tumor cells</li>
                                     </ul>
                                 </div>
                                 <div class="flex flex-wrap gap-2 mt-3">
@@ -727,7 +742,7 @@
                                     <li>Validation and clinical translation of radiogenomic biomarkers for treatment stratification</li>
                                 </ul>
                             </div>
-                            <p class="text-xs text-brand-800/60 italic mt-2">Published Proc. SPIE 13413, Medical Imaging 2025: Digital and Computational Pathology (2025)</p>
+                            <p class="text-xs text-brand-800/60 italic mt-2"> Published Proc. SPIE 13413, Medical Imaging 2025: Digital and Computational Pathology (2025)</p>
                         </div>
                          <div class="border-l-4 border-brand-accent pl-6 py-4 bg-gradient-to-r from-brand-accent/5 to-transparent rounded">
                             <h4 class="font-semibold text-brand-navy mb-2">Spatial Analysis of Genetic Heterogeneity and Tumor Microenvironment Interactions in Glioblastoma</h4>
@@ -793,7 +808,7 @@
                         I conducted my thesis work in the laboratory of Michalina Janiszewska, PhD at Scripps Research. During my doctoral training, I became a member of the Florida Center for Brain Tumor Research.
                     </p>
                     <p class="text-sm text-brand-800 leading-relaxed font-light text-justify">
-                        Throughout my training, I was fortunate to have worked closely with investigators and clinicians from leading research institutions.
+                        Throughout my training, I was fortunate to have worked closely with investigators and clinicians from leading research institutions including Moffitt Cancer Center, Dana-Farber Cancer Institute, and MD Anderson Cancer Center.
                     </p>
                     <a href="https://fcbtr.ufl.edu/" target="_blank" class="inline-block mt-6 bg-brand-teal hover:bg-brand-accent text-white px-6 py-3 rounded-full font-semibold uppercase text-sm tracking-caps transition-colors">
                         Visit FCBTR Website →
@@ -1018,6 +1033,26 @@
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // PubMed API integration (placeholder)
+        async function fetchPublications() {
+            try {
+                // This is a placeholder - replace with actual PubMed API calls
+                const response = await fetch('https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?query=ugoma+onubogu&resulttype=json');
+                const data = await response.json();
+                displayPublications(data);
+            } catch (error) {
+                console.error('Error fetching publications:', error);
+            }
+        }
+
+        function displayPublications(data) {
+            const container = document.getElementById('pubmed-results');
+            container.innerHTML = '<p class="text-sm text-brand-800/60 font-light">Publications will be displayed here.</p>';
+        }
+
+        // Initialize
+        fetchPublications();
     </script>
 </body>
 </html>
