@@ -218,7 +218,7 @@
 
    .project-card {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 2rem;
     align-items: start;
 }
@@ -230,7 +230,7 @@
 }
 
 .project-image {
-    width: 280px;
+    width: 200px;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(91, 155, 148, 0.15);
@@ -257,6 +257,13 @@
 
 .project-content {
     flex: 1;
+}
+
+html.dark-mode .project-card p,
+html.dark-mode .project-card h4,
+html.dark-mode .project-card h5,
+html.dark-mode .project-card li {
+    color: #e8eef5 !important;
 }
 
 html.dark-mode .project-card p,
