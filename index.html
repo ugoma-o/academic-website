@@ -218,8 +218,8 @@
 
         .project-card {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
     align-items: start;
 }
 
@@ -257,6 +257,13 @@
 
 .project-content {
     flex: 1;
+}
+
+html.dark-mode .project-card p,
+html.dark-mode .project-card h4,
+html.dark-mode .project-card h5,
+html.dark-mode .project-card li {
+    color: #e8eef5 !important;
 }
 
 html.dark-mode .project-card p,
